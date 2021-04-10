@@ -1,4 +1,5 @@
-#Leo's story edits and additions.
+#pseudo coding for the story
+# Leo's story edits and additions.
 '''
 
 \\\\Intro:
