@@ -1,10 +1,7 @@
 # WOW-Project
-Working repository for group
+Working repository for our group WoW project.
 
-# To-do list:
-    - Create repository (private)
-    - edit, convert, modify ETS game file
-
+ 
 
 
 
