@@ -47,8 +47,8 @@ def storyline_paragraph(text):
         time.sleep(quick)
     time.sleep(quick)
 
-def starting_question(user_name):
-    start_esaping_sanctum = input(f"{user_name}, would you like to Start? (Y/N):\n")
+def starting_question(ETS_user):
+    start_esaping_sanctum = input(f"{ETS_user.user_name}, would you like to Start? (Y/N):\n")
     if start_esaping_sanctum == "n" or start_esaping_sanctum == "N":
         print("Game Over. Please reload program")
         sys.exit()
@@ -56,7 +56,7 @@ def starting_question(user_name):
         pass
     else:
         print("that was not a valid response.")
-        starting_question(user_name)
+        starting_question(ETS_user)
 
 def header():
     storyline_paragraph("  \t\t   .... ............... ..........................\n\
