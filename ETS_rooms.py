@@ -256,3 +256,9 @@ too difficult to make out. All that is legible is _ _ {roof_access[2:]}")
             print("incorrect") 
     if attempt_count == 3:
         print(f"Sorry, {ETS_user.user_name} you are dead")
+
+
+
+rng = np.random.default_rng()
+
+roof_access = "".join([str(x) for x in rng.integers(10, size =4)])

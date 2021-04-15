@@ -68,6 +68,3 @@ def header():
   \t\t   :::::::::::::::::::::::::::::::::::::::::::::::\n\n\n")
 
 
-rng = np.random.default_rng()
-
-roof_access = "".join([str(x) for x in rng.integers(10, size =4)])
