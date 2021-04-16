@@ -56,6 +56,8 @@ if correct lever is selected access to the basement, else give user two options 
 (Alpha Team knows that they must head to the boiler room in order to stop the gas leak)
 (Alpha team must turn off the gas line)
 
+(stop the zombie from chewing on the electical power system which in the later part could cause the temperature to drop)
+
 
 '''
 ### ********* this is the old story that I will change ************ ###
@@ -63,10 +65,10 @@ if correct lever is selected access to the basement, else give user two options 
     ##### Both choices 1&2 fork off in basement #########################################
     #################################################################################
 
-    basement_boiler_room = input(f"{ETS_user.user_name}, what direction will you take Team Alpha? \n\
+    basement_fork = input(f"{ETS_user.user_name}, what direction will you take Team Alpha? \n\
     [Select 1 or 2, then press <enter> ]\n\n\
-    1) Right: \'Freezer Section: Unit B\'\n\
-    2) Straight: \'Dry Storage: Unit A\'\n")
+    1) Right: \'Boiler Room: Unit B\'\n\
+    2) Straight: \'Electrical Power System : Unit A\'\n")
     if basement_fork == "1":
         time.sleep(step)
         basement_unitB(ETS_user)
