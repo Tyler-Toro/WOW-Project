@@ -3,6 +3,8 @@
 ##############################################################################
 
 '''
+notes for 4/13/2021 at 1:30am:
+
 # need to add the color of the alarm
 # need to create code that randomized the decision for elevator stopping lever
 # need to finish the story that alpha team player is going to the basement to escape zombies and be freed from santum
@@ -23,24 +25,45 @@ if correct lever is selected access to the basement, else give user two options 
 
 '''
 
-def basement(ETS_user):
-    storyline_paragraph(f"\n\nAlpha Team heads toward the freight elevator that leads to the basement. \n\
-There is a WARNING ALARM for was a what appears to be a pipe that burst. {ETS_user.user_color.title()} alarm lights illuminate ascending \n\
-Alpha Team knows that they must head to the boiler room in order to avoid ..\n")
-    pause()
-    slow_text(f"\n\n\t({ETS_user.user_name}): \"We need to recon with Bravo and figure out what happened here. Maybe the storm is interf-\n")
-    slow_text("\n!!!!ffffffffffffffffffffffffffffssssssssssssssssssssssssssssssssshhhhhhhhhhhhhhhhhhhhhhhhhhhh!!!!!!!\n")
-    storyline_paragraph("\n\nEvery piece of radio equipment on Team Alpha bursts into noise, echoing throughout the landings above.")
-    slow_text(f"\n\t({ETS_user.user_name}): \"What the-- Comms off, turn comms off! ..We're going deaf and blind at this point\"\n")
-    storyline_paragraph(f"\nThere are no sounds but footsteps. Team Alpha reaches the basement level, where {ETS_user.user_name} finds a radio on the ground.\n\
-The lost radio is badly damaged, with deep grooves scratched into the surface. But the battery pack is missing....\n\
-There is a directory on the wall\n")
-    pause()
+                                    ##### next section to work on ######
+
+
+'''
+(player leaves main lobby and enter the freight elevator that goes to the basement)
+(player encounter a situtation where the elavator malfunctions....the rope snaps)
+(player faces a challenge to stop the elavator from falling but pulling the emegercy brake)
+                
+                lever_direct = ["left", "right", "up", "down"]
+    
+                get_lever_direct = random.choice(lever_direct)
+        
+                print(get_lever_direct)
+
+        If successfully stopped the elevator the player makes it to the basement, else the player fails
+        and has go back to main lobby, after second try game over...
+
+***Story after successfully stopping the elavator***
+
+(Alpha Team heads out the freight elevator that leads to the basement)
+((It's been hours since they have heard anything from Bravo Team))
+{ETS_user.user_name} yells,")
+
+                #slow_text 
+                "WE NEED TO FIND THEM AND GET THE HELL OUT OF HERE
+
+(There is a WARNING ALARM for was a what appears to be a pipe that burst)
+(the zombies have must have damaged control unit which has caused damage to the pipes)
+(Alpha Team knows that they must head to the boiler room in order to stop the gas leak)
+(Alpha team must turn off the gas line)
+
+
+'''
+### ********* this is the old story that I will change ************ ###
 
     ##### Both choices 1&2 fork off in basement #########################################
     #################################################################################
 
-    basement_fork = input(f"{ETS_user.user_name}, what direction will you take Team Alpha? \n\
+    basement_boiler_room = input(f"{ETS_user.user_name}, what direction will you take Team Alpha? \n\
     [Select 1 or 2, then press <enter> ]\n\n\
     1) Right: \'Freezer Section: Unit B\'\n\
     2) Straight: \'Dry Storage: Unit A\'\n")
