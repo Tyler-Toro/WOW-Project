@@ -161,7 +161,6 @@ The slowing flash LED light tints the faces engulfing {ETS_user.user_name}...\n"
 def lab(ETS_user):
     storyline_paragraph("\n\nAlpha Team begins to make their way out of the area when a sudden rumble is felt...\n")
     fast_text("\n_._.._...............::::::::::::;;;;;;;;;;;;;;;;;;;;######################<CRASH>!!!!!!!!!\n\n")
-    fast_text("\n_._.._...............::::::::::::;;;;;;;;;;;;;;;;;;;;######################<CRASH>!!!!!!!!!\n\n", delay = 0)
     storyline_paragraph("\nAll at once an elevator car comes screeching past the center shaft, coming to a crash many floors below")
     slow_text(f"\n\t({ETS_user.user_name}): \"WHAT IS GOING ON HERE?!\"\n")
     storyline_paragraph(f"\n{ETS_user.user_name.title()} peers over the ledge, then regroups the team and heads down a large corridor.\n\
@@ -259,15 +258,19 @@ too difficult to make out. All that is legible is _ _ {roof_access[2:]}")
         storyline_paragraph(f"An alarm blares from the rooftop and echoes throughout the island. The access door keypad flashes {ETS_user.user_color}\n\
 as smoke rises from the power circuit. The alarm continues on as flocks of birds scatter off of distant tree tops. As the sirens screech...a closer\n\
 sound becomes audible...")
+        pause()
         slow_text("..........Hrrrrrnnnnggggg....\n")
         slow_text(f"\n\t({ETS_user.user_name}): \"What the -----\n")
         storyline_paragraph(f"All at once, dozens of zombies rise up and slowly head towards team Alpha. {ETS_user.user_name} punches\n\
 the access panel and shuts off the alarm system. The zombies move closer and closer to the team")
-        slow_text(f"\n\t({ETS_user.user_name}): \"What the -----\n")
+        storyline_paragraph(f"The team heads to the rooftop ledge and stares down that the concrete below. With no choice left, {ETS_user.user_name}\n\
+orders the team to rappel down to the nearest window")
+        roof_escape(ETS_user)
         
 
 def roof_escape(ETS_user):
-    storyline_paragraph("Test")
+    storyline_paragraph("The team smashes the window and lunges inside")
+    lab(ETS_user)
 
 
 ## Puzzle variables ########################

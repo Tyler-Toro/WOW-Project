@@ -43,7 +43,7 @@ def fast_text(text, delay = quick):
 
 def storyline_paragraph(text):
     for line in text.split("\n"):
-        print(line)
+        print(line, flush = True)
         time.sleep(quick)
     time.sleep(quick)
 
