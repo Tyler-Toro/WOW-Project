@@ -160,7 +160,8 @@ The slowing flash LED light tints the faces engulfing {ETS_user.user_name}...\n"
 
 def lab(ETS_user):
     storyline_paragraph("\n\nAlpha Team begins to make their way out of the area when a sudden rumble is felt...\n")
-    slow_text("\n_._.._...............::::::::::::;;;;;;;;;;;;;;;;;;;;######################<CRASH>!!!!!!!!!\n\n")  
+    fast_text("\n_._.._...............::::::::::::;;;;;;;;;;;;;;;;;;;;######################<CRASH>!!!!!!!!!\n\n")
+    fast_text("\n_._.._...............::::::::::::;;;;;;;;;;;;;;;;;;;;######################<CRASH>!!!!!!!!!\n\n", delay = 0)
     storyline_paragraph("\nAll at once an elevator car comes screeching past the center shaft, coming to a crash many floors below")
     slow_text(f"\n\t({ETS_user.user_name}): \"WHAT IS GOING ON HERE?!\"\n")
     storyline_paragraph(f"\n{ETS_user.user_name.title()} peers over the ledge, then regroups the team and heads down a large corridor.\n\
@@ -255,10 +256,26 @@ too difficult to make out. All that is legible is _ _ {roof_access[2:]}")
             attempt_count += 1   # PlUS EQUALS 5 HEAD
             print("incorrect") 
     if attempt_count == 3:
-        print(f"Sorry, {ETS_user.user_name} you are dead")
+        storyline_paragraph(f"An alarm blares from the rooftop and echoes throughout the island. The access door keypad flashes {ETS_user.user_color}\n\
+as smoke rises from the power circuit. The alarm continues on as flocks of birds scatter off of distant tree tops. As the sirens screech...a closer\n\
+sound becomes audible...")
+        slow_text("..........Hrrrrrnnnnggggg....\n")
+        slow_text(f"\n\t({ETS_user.user_name}): \"What the -----\n")
+        storyline_paragraph(f"All at once, dozens of zombies rise up and slowly head towards team Alpha. {ETS_user.user_name} punches\n\
+the access panel and shuts off the alarm system. The zombies move closer and closer to the team")
+        slow_text(f"\n\t({ETS_user.user_name}): \"What the -----\n")
+        
+
+def roof_escape(ETS_user):
+    storyline_paragraph("Test")
 
 
+## Puzzle variables ########################
 
 rng = np.random.default_rng()
 
 roof_access = "".join([str(x) for x in rng.integers(10, size =4)])
+
+wires = ["red", "blue", "green", "black", "yellow", "orange"]
+
+correct_wire = np.random.choice(wires, replace = False)

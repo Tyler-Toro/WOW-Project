@@ -34,11 +34,11 @@ def slow_text(text):
         time.sleep(quick)
     time.sleep(dia)
 
-def fast_text(text):
+def fast_text(text, delay = quick):
     for letter in text:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(quick)
+        time.sleep(delay)
     time.sleep(quick)
 
 def storyline_paragraph(text):
