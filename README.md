@@ -1,6 +1,6 @@
 # Welcome to Escaping Toro Sanctum (ETS)!!!
 
-ETS is text-based adventure game written in python and ran in your command terminal.
+ETS is text-based adventure game written in python which can be ran in your command terminal.
 
 
 In this repo you will find the following files:
