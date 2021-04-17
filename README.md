@@ -4,8 +4,8 @@ ETS is text-based adventure game written in python and ran in your command termi
 
 
 In this repo you will find the following files:
-Game File
-Game Functions File
-Room Functions File
-User Class File
-Pytest File
+**Game File
+**Game Functions File
+**Room Functions File
+**User Class File
+**Pytest File
