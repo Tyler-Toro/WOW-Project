@@ -26,7 +26,7 @@ time.sleep(step)
 header()
 print("\n")
 #time.sleep(step)
-slow_text("\n\n\t Esacping Toro Sanctum ® is a work of fiction. Characters, names, businesses, locations,\n\
+fast_text("\n\n\t Esacping Toro Sanctum ® is a work of fiction. Characters, names, businesses, locations,\n\
 events, and incidents are products of the authors and co-authors (you, the user) imagination. Any resemblance to actual persons, both\n\
 living or dead, or actual events is purely coincidental")
 print("\n\n")
