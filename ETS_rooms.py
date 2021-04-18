@@ -1,5 +1,5 @@
 from ETS_functions import *
-
+import sys
 
 def escaping_sanctum(ETS_user):
     escaping_sanctum0 = input("\nWill you search for Bravo Team and Escape Toro Sanctum? (Y/N)\n")
@@ -168,13 +168,42 @@ def lab(ETS_user):
     storyline_paragraph("\n\nAlpha Team begins to make their way towards the sealed glass doors of the laboratory wing.\n\
 The powerless automatic doors are pushed open with ease as Team Alpha enters the decontamination area. There is a sudden rumble felt...\n\
 From many levels below comes the sound of heavy machinery and gears slowly grinding to a halt.")
-    slow_text(f"\n\t({ETS_user.user_name}): \"What is going on here? The elevators were dead..\"\n")
-    storyline_paragraph(f"\n{ETS_user.user_name} peers back towards the lobby, then regroups the team and heads down a large corridor.\n\
-Onward, Alpha Team can see flashing {ETS_user.user_color.title()} lights through the large glass doors of the lab.\n")
+    slow_text(f"\n\t({ETS_user.user_name}): \"What is going on here? It sounds like someone..\"\n")
+    storyline_paragraph(f"\n{ETS_user.user_name} peers back towards the lobby as the decontamination doors lock into place. Alpha Team can see flashing\n\
+{ETS_user.user_color.title()} lights overhead as the air is slowly pulled out of the room.\n")
     pause()
-    storyline_paragraph(f"\nThe laboratory doors slide against a gritty floor. The lab is field of broken glass and debris.\n\
-{ETS_user.user_color.title()} light is scattered in every direction as the team moves toward the emergency exit. The emergency exit \n\
-doors are blocked by a mountain of large boxes, lab equipment, and garbage\n")
+    slow_text(f"\n\t({ETS_user.user_name}): \"We have to shut this damn thing down!\"\n")
+    storyline_paragraph(f"\nNear the wall is an emergency shut off switch, with wires exposed. {ETS_user.user_name} rushes over to examine the switch\n")
+    cuts = 0
+    #print(correct_wire.upper())
+    while cuts < 3:
+        for wire in wires:
+            print(wire)
+        user_wire = input("\n\nWhat color wire will you cut:  \n")
+        if user_wire == correct_wire:
+            storyline_paragraph("\nThe decontamination chamber doors open and oxygen is pumped back into the room.\n")
+            break
+        else:
+            cuts += 1
+            wires.remove(user_wire)
+            slow_text("\nBeep......beep.....beep....\n")
+            slow_text("\"nothing happened\"\n")
+    if cuts == 3:
+        storyline_paragraph(f"{ETS_user.user_name}\'s vision becomes blurry as the room reaches 0% oxygen level, coughing, Team Alpha falls to the ground\n")
+        slow_text("\tGame Over\n\n")
+        retry = input("Try again? (Y/N)\n")
+        if retry == "n" or retry == "N":
+            sys.exit()
+        elif retry == "y" or retry == "Y":
+            time.sleep(step)
+            escaping_sanctum(ETS_user)
+        else:
+            time.sleep(step)
+            print("\t\tInvalid response".upper())
+            lab(ETS_user)
+    storyline_paragraph(f"\nTeam Alpha stumbles on while catching their breath. The cooridor to the Lab is empty and appears untouched. The laboratory doors \n\
+slide against a gritty floor. The lab is field of broken glass and debris. {ETS_user.user_color.title()} light is scattered in every direction as the team \n\
+moves toward the emergency exit. The emergency exit doors are blocked by a mountain of large boxes, lab equipment, and garbage\n")
     pause()
     if ETS_user.user_item == "A lucky coin" or ETS_user.user_item == "A golden locket" or ETS_user.user_item == "A bronze compass":
         slow_text(f"{ETS_user.user_item} falls out of {ETS_user.user_name}\'s pocket and rolls out of the lab entrance, making it to the corridor\n")
@@ -276,7 +305,7 @@ sound becomes audible...")
         storyline_paragraph(f"All at once, dozens of zombies rise up and slowly head towards team Alpha. {ETS_user.user_name} punches\n\
 the access panel and shuts off the alarm system. The zombies move closer and closer to the team")
         storyline_paragraph(f"The team heads to the rooftop ledge and stares down that the concrete below. With no choice left, {ETS_user.user_name}\n\
-orders the team to rappel down to the nearest window")
+orders the team to rappel down to the nearest window\n")
         roof_escape(ETS_user)
         
 
