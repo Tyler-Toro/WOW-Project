@@ -91,7 +91,7 @@ random_choice = random.choice(lever_direct)
 print(random_choice)
 
 def get_lever_direct():
-    if random_choice == lever_direct:
+    if random_choice == lever_direct: # having issue here with catching the wrong random string and entering into the apprpriate loop.
         elavator_stop: True
 
 get_lever_direct()
