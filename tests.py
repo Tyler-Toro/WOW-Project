@@ -74,11 +74,12 @@ def hit_door_hp(door_hp = 20):
     return door_hp
 
 def get_lever_direct():
-    elavator_stop:False
+    elavator_stop = False
     if random_choice == lever_input: # having issue here with catching the wrong random string and entering into the apprpriate loop.
-        elavator_stop: True
+        elavator_stop = True
     else:
-        basement_header
+        print("Wrong Choice try again")
+        hit_door_hp
 
 
 def starting_question():
@@ -99,19 +100,16 @@ basement_header()
 starting_question()
 
 
-
 lever_input = input("Which direction do you want to pull the lever?")
 
 lever_direct = ["left", "right", "up", "down"]
-
-#elavator_stop:False
 
 random_choice = random.choice(lever_direct)
 print(random_choice)
 
 get_lever_direct()
 
-basement_fork = input(f" What direction will you take Team aqAlpha? \n\
+basement_fork = input(f" What direction will you take Team Alpha? \n\
     [Select 1 or 2, then press <enter> ]\n\n\
     1) Right: \'Boiler Room: Unit B\'\n\
     2) Straight: \'Electrical Power System : Unit A\'\n")
