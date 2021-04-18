@@ -31,7 +31,7 @@ def fast_text(text):
 def storyline_paragraph(text):
     for line in text.split("\n"):
         print(line)
-        time.sleep(slow)
+        time.sleep(step)
     time.sleep(quick)
 
 def starting_question(ETS_user):
@@ -51,8 +51,8 @@ def basement_header():
   \t\t   ...... ..... ......... ........................\n\
   \t\t   .........  Escaping Toro Sanctum ...... ........\n\
   \t\t   ........ ......The Basement............. ......\n\
-  \t\t   :::::::::::::::::::::::::::::::::::::::::::::::\n\
-  \t\t   :::::::::::::::::::::::::::::::::::::::::::::::\n\n\n")
+  \t\t   ::::::::::::::::.............:::::::::::::::::::\n\
+  \t\t   :::::::::::::::::::::.....::::::::::::::::::::\n\n\n")
 
 
 rng = np.random.default_rng()
@@ -74,29 +74,44 @@ def hit_door_hp(door_hp = 20):
     return door_hp
 
 def get_lever_direct():
-    if random_choice == lever_direct:
+    elavator_stop:False
+    if random_choice == lever_input: # having issue here with catching the wrong random string and entering into the apprpriate loop.
         elavator_stop: True
+    else:
+        basement_header
+
+
+def starting_question():
+    start_esaping_sanctum = input("Player 1, would you like to Start? (Y/N):\n")
+    if start_esaping_sanctum == "n" or start_esaping_sanctum == "N":
+        print("Game Over. Please reload program")
+        sys.exit()
+    elif start_esaping_sanctum == "y" or start_esaping_sanctum == "Y":
+        pass
+    else:
+        print("that was not a valid response.")
+        starting_question()
 
 #game starts at this point
 
 basement_header()
 
+starting_question()
+
+
+
 lever_input = input("Which direction do you want to pull the lever?")
 
 lever_direct = ["left", "right", "up", "down"]
 
-elavator_stop:False
+#elavator_stop:False
 
 random_choice = random.choice(lever_direct)
 print(random_choice)
 
-def get_lever_direct():
-    if random_choice == lever_direct: # having issue here with catching the wrong random string and entering into the apprpriate loop.
-        elavator_stop: True
-
 get_lever_direct()
 
-basement_fork = input(f" What direction will you take Team Alpha? \n\
+basement_fork = input(f" What direction will you take Team aqAlpha? \n\
     [Select 1 or 2, then press <enter> ]\n\n\
     1) Right: \'Boiler Room: Unit B\'\n\
     2) Straight: \'Electrical Power System : Unit A\'\n")
