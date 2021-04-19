@@ -165,7 +165,7 @@ The slowing flash LED light tints the faces engulfing {ETS_user.user_name}...\n"
 
 def lab(ETS_user):
     slow_text("\n\t\t\t __Laboratory__\t\n\n")
-    storyline_paragraph("\n\nAlpha Team begins to make their way towards the sealed glass doors of the laboratory wing.\n\
+    storyline_paragraph(f"\n\nAlpha Team begins to make their way towards the sealed {correct_wire} glass doors of the laboratory wing.\n\
 The powerless automatic doors are pushed open with ease as Team Alpha enters the decontamination area. There is a sudden rumble felt...\n\
 From many levels below comes the sound of heavy machinery and gears slowly grinding to a halt.")
     slow_text(f"\n\t({ETS_user.user_name}): \"What is going on here? It sounds like someone..\"\n")
@@ -179,7 +179,7 @@ From many levels below comes the sound of heavy machinery and gears slowly grind
     while cuts < 3:
         for wire in wires:
             print(wire)
-        user_wire = input("\n\nWhat color wire will you cut:  \n")
+        user_wire = input("\n\nWhat color wire will you cut:  \n").lower()
         if user_wire == correct_wire:
             storyline_paragraph("\nThe decontamination chamber doors open and oxygen is pumped back into the room.\n")
             break
@@ -187,11 +187,11 @@ From many levels below comes the sound of heavy machinery and gears slowly grind
             cuts += 1
             wires.remove(user_wire)
             slow_text("\nBeep......beep.....beep....\n")
-            slow_text("\"nothing happened\"\n")
+            slow_text("\"nothing happened\"\n\n")
     if cuts == 3:
         storyline_paragraph(f"{ETS_user.user_name}\'s vision becomes blurry as the room reaches 0% oxygen level, coughing, Team Alpha falls to the ground\n")
         slow_text("\tGame Over\n\n")
-        retry = input("Try again? (Y/N)\n")
+        retry = input("Try again? (Y/N)\n").lower()
         if retry == "n" or retry == "N":
             sys.exit()
         elif retry == "y" or retry == "Y":
