@@ -31,28 +31,18 @@ def fast_text(text):
 def storyline_paragraph(text):
     for line in text.split("\n"):
         print(line)
-        time.sleep(step)
+        time.sleep(quick)
     time.sleep(quick)
 
-def starting_question(ETS_user):
-    start_esaping_sanctum = input(f"{ETS_user.user_name}, would you like to Start? (Y/N):\n")
-    if start_esaping_sanctum == "n" or start_esaping_sanctum == "N":
-        print("Game Over. Please reload program")
-        sys.exit()
-    elif start_esaping_sanctum == "y" or start_esaping_sanctum == "Y":
-        pass
-    else:
-        print("that was not a valid response.")
-        starting_question(ETS_user)
 
 def basement_header():
     storyline_paragraph("  \t\t   .... ............... ..........................\n\
   \t\t   .. ......................... .......... .......\n\
   \t\t   ...... ..... ......... ........................\n\
   \t\t   .........  Escaping Toro Sanctum ...... ........\n\
-  \t\t   ........ ......The Basement............. ......\n\
-  \t\t   ::::::::::::::::.............:::::::::::::::::::\n\
-  \t\t   :::::::::::::::::::::.....::::::::::::::::::::\n\n\n")
+  \t\t   ........ ..... The Basement ............ ......\n\
+  \t\t   ::::::::::::::::....      .....:::::::::::::::::::\n\
+  \t\t   :::::::::::::::::::::.  .::::::::::::::::::::\n\n\n")
 
 
 rng = np.random.default_rng()
@@ -62,6 +52,12 @@ roof_access = "".join([str(x) for x in rng.integers(10, size =4)])
 
 def pause():
     pausing = input("\n  press <enter> to continue...\n")
+
+def wrong_choice_option():
+    print("Wrong choice, Please Try again!!!")
+    starting_question()
+    print()
+    get_lever_direct()
 
 def hit_door_hp(door_hp = 20):
     while door_hp > 0:
@@ -74,57 +70,70 @@ def hit_door_hp(door_hp = 20):
     return door_hp
 
 def get_lever_direct():
+    lever_direct = ["left", "right", "up", "down"]
     elavator_stop = False
-    if random_choice == lever_input: # having issue here with catching the wrong random string and entering into the apprpriate loop.
+    lever_input = input("Which direction do you want to pull the lever?")
+    pause()
+    random_choice = random.choice(lever_direct)
+    print(f"You chose '{lever_input}''.The correct choice was '{random_choice}'.")
+    
+    if random_choice == lever_input: # having issue here with catching the wrong random string and entering into the apprpriate loop. Using while asking user input and checking while they dont have it right. line 177 in rooms on main branch
         elavator_stop = True
+        basement_fork()
     else:
-        print("Wrong Choice try again")
-        hit_door_hp
+        wrong_choice_option()
+        
 
 
 def starting_question():
-    start_esaping_sanctum = input("Player 1, would you like to Start? (Y/N):\n")
-    if start_esaping_sanctum == "n" or start_esaping_sanctum == "N":
+    start_esaping_sanctum = input("Player 1, would you like to Start? (Y/N):\n").lower()
+    if start_esaping_sanctum == "n":
         print("Game Over. Please reload program")
         sys.exit()
-    elif start_esaping_sanctum == "y" or start_esaping_sanctum == "Y":
+    elif start_esaping_sanctum == "y":
         pass
     else:
         print("that was not a valid response.")
         starting_question()
 
+def boiler_room():
+    print("Game over !!!!! Player One Wins").upper()
+
+
+def electrical_room():
+    hit_door_hp()
+
+def wrong_input_basement_fork():
+    basement_fork()
+
+def basement_fork():
+    basement_input = input(" What direction will you take Team Alpha? \n\
+[Select 1 or 2, then press <enter> ]\n\n\
+1) Right: \'Boiler Room\'\n\
+2) Left: \'Electrical Power System\'\n")
+
+    if basement_input == "1":
+    # time.sleep(step)
+    # basement_room()
+        print("you are in the basement")
+    elif basement_input == "2":
+    # time.sleep(slow)
+        print("you are the the electrical room")
+        electrical_room()
+    else:
+        print("\n\t\tinvalid response".upper())
+        time.sleep(step)
+        print("\n\n")
+        wrong_input_basement_fork() #go back to lobby
+
 #game starts at this point
 
-basement_header()
+# basement_header() #1 
 
-starting_question()
+# starting_question() #2
 
+# get_lever_direct()
 
-lever_input = input("Which direction do you want to pull the lever?")
+basement_fork()
 
-lever_direct = ["left", "right", "up", "down"]
-
-random_choice = random.choice(lever_direct)
-print(random_choice)
-
-get_lever_direct()
-
-basement_fork = input(f" What direction will you take Team Alpha? \n\
-    [Select 1 or 2, then press <enter> ]\n\n\
-    1) Right: \'Boiler Room: Unit B\'\n\
-    2) Straight: \'Electrical Power System : Unit A\'\n")
-
-if basement_fork == "1":
-    time.sleep(step)
-    basement_unitB(ETS_user)
-elif basement_fork == "2":
-    time.sleep(slow)
-    basement_unitA(ETS_user)
-else:
-    print("\n\t\tinvalid response".upper())
-    time.sleep(step)
-    print("\n\n")
-    basement(ETS_user)
-        
-#print(lever_direct)
 
