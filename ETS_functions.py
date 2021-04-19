@@ -12,6 +12,7 @@ quick = 0.01
 step = 1
 
 
+
 def input_weight(weight):
     while True:
         try:
@@ -71,3 +72,6 @@ def header():
 rng = np.random.default_rng()
 
 roof_access = "".join([str(x) for x in rng.integers(10, size =4)])
+
+def create_string_from_int_list(intList):
+    return "".join([str(x) for x in intList])
