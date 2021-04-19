@@ -340,3 +340,6 @@ roof_access = "".join([str(x) for x in rng.integers(10, size =4)])
 wires = ["red", "blue", "green", "black", "yellow", "orange"]
 
 correct_wire = np.random.choice(wires, replace = False)
+
+def create_string_from_int_list(intList):
+    return "".join([str(x) for x in intList])
