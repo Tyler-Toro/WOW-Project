@@ -1,4 +1,4 @@
-#importing
+############### importing ############
 
 import sys
 import time
@@ -11,7 +11,7 @@ dia = 0.1
 quick = 0.01
 step = 1
 
-#functions
+############# functions ##############
 
 
 def slow_text(text):
@@ -51,7 +51,11 @@ roof_access = "".join([str(x) for x in rng.integers(10, size =4)])
 
 
 def pause():
-    pausing = input("\n  press <enter> to continue...\n")
+    pausing = input("\n  press <enter> to continue...\n") #need to add one for the breaking 
+    # the door "press enter to punch the door" and add it to door_hp
+
+def door_damage():
+    damaging = input("\n  press <enter> to break the door...\n")
 
 def wrong_choice_option():
     print("Wrong choice, Please Try again!!!")
@@ -61,7 +65,7 @@ def wrong_choice_option():
 
 def hit_door_hp(door_hp = 20):
     while door_hp > 0:
-        pause()
+        door_damage()
         door_hp = door_hp - 5
         if door_hp != 0:
             print(f"You have weakened the door down to {door_hp}% of its strength") #figure out how to remove zero from the if statement print out %
@@ -97,11 +101,11 @@ def starting_question():
         starting_question()
 
 def boiler_room():
-    print("Game over !!!!! Player One Wins").upper()
+    print("Game over !!!!! Player One Wins").upper() ###need to finish story###
 
 
 def electrical_room():
-    hit_door_hp()
+    hit_door_hp() ###need to finish story###
 
 def wrong_input_basement_fork():
     basement_fork()
@@ -115,7 +119,8 @@ def basement_fork():
     if basement_input == "1":
     # time.sleep(step)
     # basement_room()
-        print("you are in the basement")
+        print("you are in the boiler room")
+        boiler_room()
     elif basement_input == "2":
     # time.sleep(slow)
         print("you are the the electrical room")
@@ -126,14 +131,45 @@ def basement_fork():
         print("\n\n")
         wrong_input_basement_fork() #go back to lobby
 
+################ class ###################
+
+# class temperature:
+#     def __init__(self, temperature, decrease):
+#         self.temperature = temperature
+#         self.decrease = decrease
+
+# def get_input_temp():
+#     temperature = (input("What is the room temperature?:\n")
+
+#     decrease = self.temperature - 10
+
+
+'''
+
+create a class to get the temp
+
+room temp attribute decrease temp
+git temp metod amd lower __init__ to give intial temp
+temp = 80
+return temp
+
+get_temp
+    self.temp=80
+    decrease = self.temp - 5
+
+'''
+
 #game starts at this point
+#broke everything down to functions and calls
 
-# basement_header() #1 
+basement_header() #1 
 
-# starting_question() #2
+starting_question() #2
 
-# get_lever_direct()
+get_lever_direct() #3
 
-basement_fork()
+basement_fork() #4
+
+# get_input_temp() #5
 
 
