@@ -49,7 +49,7 @@ rng = np.random.default_rng()
 
 roof_access = "".join([str(x) for x in rng.integers(10, size =4)])
 
-
+'''
 def pause():
     pausing = input("\n  press <enter> to continue...\n") #need to add one for the breaking 
     # the door "press enter to punch the door" and add it to door_hp
@@ -57,12 +57,19 @@ def pause():
 def door_damage():
     damaging = input("\n  press <enter> to break the door...\n")
 
-def wrong_choice_option():
-    print("Wrong choice, Please Try again!!!")
-    starting_question()
-    print()
-    get_lever_direct()
+'''
 
+
+'''
+# def wrong_choice_option():
+#     print("Wrong choice, Please Try again!!!")
+#     starting_question()
+#     print()
+#     get_lever_direct()
+we did not use
+'''
+
+'''
 def hit_door_hp(door_hp = 20):
     while door_hp > 0:
         door_damage()
@@ -85,52 +92,91 @@ def get_lever_direct():
         elavator_stop = True
         basement_fork()
     else:
-        wrong_choice_option()
-        
+        basement()
+
+ use these already       
+ '''       
 
 
-def starting_question():
-    start_esaping_sanctum = input("Player 1, would you like to Start? (Y/N):\n").lower()
-    if start_esaping_sanctum == "n":
-        print("Game Over. Please reload program")
-        sys.exit()
-    elif start_esaping_sanctum == "y":
-        pass
-    else:
-        print("that was not a valid response.")
-        starting_question()
+# def starting_question():
+#     start_esaping_sanctum = input("Player 1, would you like to Start? (Y/N):\n").lower()
+#     if start_esaping_sanctum == "n":
+#         print("Game Over. Please reload program")
+#         sys.exit()
+#     elif start_esaping_sanctum == "y":
+#         pass
+#     else:
+#         print("that was not a valid response.")
+#         starting_question()
 
-def boiler_room():
-    print("Game over !!!!! Player One Wins").upper() ###need to finish story###
-
-
+'''
 def electrical_room():
     hit_door_hp() ###need to finish story###
+    #basement_unitA(EST_user)
+'''
 
-def wrong_input_basement_fork():
-    basement_fork()
+'''
+# def boiler_room():
+#     temperature = 65
+#     # add word degrees
 
-def basement_fork():
-    basement_input = input(" What direction will you take Team Alpha? \n\
-[Select 1 or 2, then press <enter> ]\n\n\
-1) Right: \'Boiler Room\'\n\
-2) Left: \'Electrical Power System\'\n")
+#     while temperature < 115: # randomize key cards and letters and define and call key list
+#         for key in boiler_keys:
+#             print(keys)
+#         user_key = input("\n\nWhat key do you want try:  \n").lower()
+#         if user_key == "B":
+#             storyline_paragraph("\nThe decontamination chamber doors open and oxygen is pumped back into the room.\n") # add boiler story
+#             break
+#         else:
+#             temperature += 20
+#             boiler_keys.remove(user_key)
+#             storyline_paragraph(f"{ETS_user.user_name}\'s notices there is a WARNING ALARM for inceasing temperature.\n")
+#             slow_text("\"The Door is Still Locked\"\n\n")
+#     if temperature == 115:
+#         storyline_paragraph("The Room is engulfed in flames!!!!\n")
+#         slow_text("\tYou the burned the Alpha Team!!! Game Over\n\n")
+#         retry = input("Try again? (Y/N)\n").lower()
+#         if retry == "n" or retry == "N":
+#             sys.exit()
+#         elif retry == "y" or retry == "Y":
+#             time.sleep(step)
+#             escaping_sanctum(ETS_user)
+#         else:
+#             time.sleep(step)
+#             print("\t\tInvalid response".upper())
+#             lab(ETS_user)
 
-    if basement_input == "1":
-    # time.sleep(step)
-    # basement_room()
-        print("you are in the boiler room")
-        boiler_room()
-    elif basement_input == "2":
-    # time.sleep(slow)
-        print("you are the the electrical room")
-        electrical_room()
-    else:
-        print("\n\t\tinvalid response".upper())
-        time.sleep(step)
-        print("\n\n")
-        wrong_input_basement_fork() #go back to lobby
+# boiler_keys = ["A","B","C"]
 
+****...added this to the story already...****
+'''
+
+
+
+'''
+# def basement_fork():
+#     basement_input = input(" What direction will you take Team Alpha? \n\
+# [Select 1 or 2, then press <enter> ]\n\n\
+# 1) Right: \'Boiler Room\'\n\
+# 2) Left: \'Electrical Power System\'\n")
+
+#     if basement_input == "1":
+#     # time.sleep(step)
+#     # basement_room()
+#         print("you are in the boiler room")
+#         boiler_room()
+#     elif basement_input == "2":
+#     # time.sleep(slow)
+#         print("you are the the electrical room")
+#         electrical_room()
+#     else:
+#         print("\n\t\tinvalid response".upper())
+#         time.sleep(step)
+#         print("\n\n")
+#         wrong_input_basement_fork() #go back to lobby
+
+#put this in the actual file aready
+'''
 ################ class ###################
 
 # class temperature:
@@ -163,12 +209,34 @@ get_temp
 #broke everything down to functions and calls
 
 basement_header() #1 
+'''
+(Alpha Team heads out the freight elevator that leads to the basement)
+((It's been hours since they have heard anything from Bravo Team))
+{ETS_user.user_name} yells,")
+
+                #slow_text 
+                "WE NEED TO FIND THEM AND GET THE HELL OUT OF HERE
+'''
 
 starting_question() #2
 
+'''
+(player leaves main lobby and enter the freight elevator that goes to the basement)
+(player encounter a situtation where the elavator malfunctions....the rope snaps)
+
+
+'''
 get_lever_direct() #3
 
 basement_fork() #4
+
+'''
+Boiler Room
+(There is a WARNING ALARM for was a what appears to be a pipe that burst)
+(the zombies have must have damaged control unit which has caused damage to the pipes)
+(Alpha Team knows that they must head to the boiler room in order to stop the leak)
+(Alpha team must turn off the pipeline line)
+'''
 
 # get_input_temp() #5
 
