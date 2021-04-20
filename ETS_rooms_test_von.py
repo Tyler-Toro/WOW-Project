@@ -1,4 +1,5 @@
-from ETS_functions import *
+# from ETS_functions import *
+import test_3
 import sys
 
 def escaping_sanctum(ETS_user):
@@ -107,7 +108,7 @@ There is a directory on the wall\n")
         print("\n\n")
         basement() #go back to lobby
 
-def boiler_room():
+def boiler_room(ETS_user):
     temperature = 65 # add word degrees
 
     while temperature < 115: # randomize key cards and letters and define and call key list
@@ -134,7 +135,7 @@ def boiler_room():
         else:
             time.sleep(step)
             print("\t\tInvalid response".upper())
-            lab(ETS_user)
+            boiler_room(ETS_user)
 
 def door_damage():
     damaging = input("\n  press <enter> to break the door...\n")
@@ -149,7 +150,7 @@ def hit_door_hp(door_hp = 20):
             print(f"WARNING!!! Failure!!! WARNING Door is it at {door_hp}%. You have broken through the door!!!\n")
     return door_hp
 
-def electrical_room():
+def electrical_room(ETS_user):
     storyline_paragraph("As the Alpha team enters the Electrical Room, they realize that the zombies have been\n\
 jamming the communications all along. In the control room is an emgercy communication circuit breaker.\n\
 {ETS_user.user_name} notices a lever that control the circuit.\n")
@@ -167,18 +168,18 @@ jamming the communications all along. In the control room is an emgercy communic
         else:
             attempts += 1
             storyline_paragraph("Nothing Happened")
-    if attempts = 4:
+    if attempts == 4: #error here on copy submitted to repo
             storyline_paragraph("The lever cracks, trapping team Alpha in the room.")
             retry = input("Game Over. Try again? (Y/N)\n")
-        if retry == "n" or retry == "N":
-            sys.exit()
-        elif retry == "y" or retry == "Y":
-            time.sleep(step)
-            escaping_sanctum(ETS_user)
-        else:
-            time.sleep(step)
-            print("\n\t\tInvalid response".upper())
-            electrical_room(ETS_user)
+    if retry == "n" or retry == "N":
+        sys.exit()
+    elif retry == "y" or retry == "Y":
+        time.sleep(step)
+        escaping_sanctum(ETS_user)
+    else:
+        time.sleep(step)
+        print("\n\t\tInvalid response".upper())
+        electrical_room(ETS_user)
         
 
     storyline_paragraph("As the power restores, the door leading to the next corridor locks\n")
