@@ -1,5 +1,5 @@
 from ETS_functions import *
-
+###importing from our functions file
 
 def introduction(ETS_user):
     storyline_paragraph("\n\nA single flash of lightning casts dozens of long shadows across the skybridge. The subsequent\n\
@@ -7,7 +7,8 @@ thunder crashes, deafening the small group. The rain is relentless, making the v
 The only feature made out in the distance, as another flash of lightening blazes across the sky, is the outline \n\
 of a gigantic building. An entire team has been missing from the rendezvous for the betterpart of an hour.\n\
 Someone is shouting over the rain, gripping a radio...\n\n")
-    
+##### calling our user class ETS_user
+#####slow text effect for print statements    
     pause()
     slow_text(f"\n\t({ETS_user.user_name}): \"....-repeat, Systems check! Over!\"\n")
     slow_text("\n......\n")
