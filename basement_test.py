@@ -17,11 +17,27 @@ if correct lever is selected access to the basement, else give user two options 
     get_lever_direct = random.choice(lever_direct)
     print(get_lever_direct)
 
-#put ASCII where color is on line 
+#put ASCII where color is on line  and need to make ascii file 
 
-#create boiler room
+#create boiler room temperate control room 
 
 # create zombie
+
+room temp attribute decrease temp
+git temp metod amd lower __init__ to give intial temp
+temp = 80
+return temp
+
+get_temp
+    self.temp=80
+    decrease = self.temp - 5
+
+
+
+
+
+
+
 
 '''
 
@@ -53,33 +69,22 @@ if correct lever is selected access to the basement, else give user two options 
 
 (There is a WARNING ALARM for was a what appears to be a pipe that burst)
 (the zombies have must have damaged control unit which has caused damage to the pipes)
-(Alpha Team knows that they must head to the boiler room in order to stop the gas leak)
-(Alpha team must turn off the gas line)
+(Alpha Team knows that they must head to the boiler room in order to stop the leak)
+(Alpha team must turn off the pipeline line)
 
-(stop the zombie from chewing on the electical power system which in the later part could cause the temperature to drop)
-
+(stop the zombie from chewing on the electical power system)
+ # winning function to call
+ # use temp puzzle as for roof puzzle 
 
 '''
-### ********* this is the old story that I will change ************ ###
+### ********* Basement Header ************ ###
+
+basement_header
 
     ##### Both choices 1&2 fork off in basement #########################################
     #################################################################################
 
-    basement_fork = input(f"{ETS_user.user_name}, what direction will you take Team Alpha? \n\
-    [Select 1 or 2, then press <enter> ]\n\n\
-    1) Right: \'Boiler Room: Unit B\'\n\
-    2) Straight: \'Electrical Power System : Unit A\'\n")
-    if basement_fork == "1":
-        time.sleep(step)
-        basement_unitB(ETS_user)
-    elif basement_fork == "2":
-        time.sleep(slow)
-        basement_unitA(ETS_user)
-    else:
-        print("\n\t\tinvalid response".upper())
-        time.sleep(step)
-        print("\n\n")
-        basement(ETS_user)    
+basement_fork()
 
 
 ### Basement - choice 2 (Storage A) #########################################################
