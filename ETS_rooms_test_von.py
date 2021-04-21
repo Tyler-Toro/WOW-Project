@@ -1,4 +1,4 @@
-# from ETS_functions import *
+from ETS_functions import *
 import test_3
 import sys
 
@@ -94,36 +94,51 @@ There is a directory on the wall\n")
 2) Left: \'Electrical Power System\'\n")
 
     if basement_fork_one == "1":
-    # time.sleep(step)
-    # basement_room()
-        print("you are in the boiler room") #place holders
-        boiler_room()
+        time.sleep(step)
+        print("you are in the boiler room")
+        boiler_room(ETS_user)
     elif basement_fork_one == "2":
-    # time.sleep(slow)
-        print("you are the the electrical room") #place holders
-        electrical_room()
+        time.sleep(slow)
+        print("you are the the electrical room")
+        electrical_room(ETS_user)
     else:
         print("\n\t\tinvalid response".upper())
         time.sleep(step)
         print("\n\n")
-        basement() #go back to lobby
+        basement(ETS_user)
 
 def boiler_room(ETS_user):
-    temperature = 65 # add word degrees
+    temperature = 65
+    storyline_paragraph("As Alphas team enters the boiler room...\n\
+There is a loud hissing noise coming from the pipes.\n\")
+    slow_text(f"\n\t({ETS_user.user_name}): \"The zombies have must have caused damage to the pipes\n\
+we need to head to the boiler room in order to figure out what is going on...\"\n")
 
-    while temperature < 115: # randomize key cards and letters and define and call key list
+    while temperature < 125:
         for key in boiler_keys:
             print(keys)
+        slow_text(f"\nThe current room temperature is {temperature} degrees \n") 
         user_key = input("\n\nWhat key do you want try:  \n").lower()
-        if user_key == "B":
-            storyline_paragraph("\nThe decontamination chamber doors open and oxygen is pumped back into the room.\n") # add boiler story
+        if user_key in boiler_keys:
+            pass
+        else:
+            storyline_paragraph("you entered the wrong key! please enter the correct key.").upper()
+            continue
+        if user_key == "blood":
+            storyline_paragraph("\nAlpha team chose the correct key after examining the boiler room.\n\
+Alpha team became confused when they did not see any damage to the pipes. \n")
+            slow_text(f"\n\t({ETS_user.user_name}): \"I really thought we would find something boilerroom.\"\n")
+            storyline_paragraph(" Alpha team growns impatient as communication issues persist and alpha team\n\
+needs to find bravo team before it's too late, so the team continues deeper to explore the basement.\n\
+They find a door that leads to the ELECTRICAL ROOM")
+            electrical_room(ETS_user)
             break
         else:
-            temperature += 20
+            temperature += 20 
             boiler_keys.remove(user_key)
-            storyline_paragraph(f"{ETS_user.user_name}\'s notices there is a WARNING ALARM for inceasing temperature.\n")
+            storyline_paragraph(f"{ETS_user.user_name}\'s notices there is a WARNING ALARM for increasing temperature.\n")
             slow_text("\"The Door is Still Locked\"\n\n")
-    if temperature == 115:
+    if temperature == 125:
         storyline_paragraph("The Room is engulfed in flames!!!!\n")
         slow_text("\tYou the burned the Alpha Team!!! Game Over\n\n")
         retry = input("Try again? (Y/N)\n").lower()
@@ -147,11 +162,11 @@ def hit_door_hp(door_hp = 20):
         if door_hp != 0:
             print(f"You have weakened the door down to {door_hp}% of its strength\n")
         else:
-            print(f"WARNING!!! Failure!!! WARNING Door is it at {door_hp}%. You have broken through the door!!!\n")
+            print(f"\"WARNING!!! Failure!!! WARNING Door is it at {door_hp}%.\" You have broken through the door!!!\n")
     return door_hp
 
 def electrical_room(ETS_user):
-    storyline_paragraph("As the Alpha team enters the Electrical Room, they realize that the zombies have been\n\
+    storyline_paragraph(f"As the Alpha team enters the Electrical Room, they realize that the zombies have been\n\
 jamming the communications all along. In the control room is an emgercy communication circuit breaker.\n\
 {ETS_user.user_name} notices a lever that control the circuit.\n")
 
@@ -168,24 +183,23 @@ jamming the communications all along. In the control room is an emgercy communic
         else:
             attempts += 1
             storyline_paragraph("Nothing Happened")
-    if attempts == 4: #error here on copy submitted to repo
+    if attempts == 4:
             storyline_paragraph("The lever cracks, trapping team Alpha in the room.")
             retry = input("Game Over. Try again? (Y/N)\n")
-    if retry == "n" or retry == "N":
-        sys.exit()
-    elif retry == "y" or retry == "Y":
-        time.sleep(step)
-        escaping_sanctum(ETS_user)
-    else:
-        time.sleep(step)
-        print("\n\t\tInvalid response".upper())
-        electrical_room(ETS_user)
-        
-
+            if retry == "n" or retry == "N":
+                sys.exit()
+            elif retry == "y" or retry == "Y":
+                time.sleep(step)
+                escaping_sanctum(ETS_user)
+            else:
+                time.sleep(step)
+                print("\n\t\tInvalid response".upper())
+                electrical_room(ETS_user)
+   
     storyline_paragraph("As the power restores, the door leading to the next corridor locks\n")
     hit_door_hp()
-
-
+    
+    storyline_paragraph("\nTeam Alpha breaks through and enters the corridor.\n")
     basement_fork_two = input(f"{ETS_user.user_name}, what direction will you take Team Alpha? \n\
     [Select 1 or 2, then press <enter> ]\n\n\
     1) Right: \'Freezer Section: Unit B\'\n\
@@ -200,7 +214,7 @@ jamming the communications all along. In the control room is an emgercy communic
         print("\n\t\tinvalid response".upper())
         time.sleep(step)
         print("\n\n")
-        basement(ETS_user)    
+        electrical_room(ETS_user)    
 
 # ** add boiler and electric room functions (call statements) ** #
 
@@ -441,7 +455,7 @@ wires = ["red", "blue", "green", "black", "yellow", "orange"]
 
 correct_wire = np.random.choice(wires, replace = False)
 
-boiler_keys = ["A","B","C"]
+boiler_keys = ["skull","blood","heart","spine"]
 
 lever_direct = ["left", "right", "up", "down"]
 
