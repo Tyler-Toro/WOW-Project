@@ -2,7 +2,10 @@
 import sys
 import time
 import os
+from colorama import Fore, init
 import numpy as np
+
+init(autoreset= True)
 
 slow = 2.5
 dia = 0.1
@@ -11,7 +14,7 @@ step = 1
 
 from ETS_functions import *
 from ETS_intro import *
-from ETS_rooms import *
+from ETS_rooms_test_von import *
 
 
 ########################################################################################################################
