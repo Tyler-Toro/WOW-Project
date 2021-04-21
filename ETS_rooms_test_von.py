@@ -1,6 +1,9 @@
 from ETS_functions import *
-import test_3
 import sys
+from numpy import *
+from colorama import Fore, init
+init(autoreset= True)
+
 
 def escaping_sanctum(ETS_user):
     escaping_sanctum0 = input("\nWill you search for Bravo Team and Escape Toro Sanctum? (Y/N)\n")
@@ -95,11 +98,9 @@ There is a directory on the wall\n")
 
     if basement_fork_one == "1":
         time.sleep(step)
-        print("you are in the boiler room")
         boiler_room(ETS_user)
     elif basement_fork_one == "2":
         time.sleep(slow)
-        print("you are the the electrical room")
         electrical_room(ETS_user)
     else:
         print("\n\t\tinvalid response".upper())
@@ -108,37 +109,41 @@ There is a directory on the wall\n")
         basement(ETS_user)
 
 def boiler_room(ETS_user):
+    boiler_keys = []
     temperature = 65
     storyline_paragraph("As Alphas team enters the boiler room...\n\
-There is a loud hissing noise coming from the pipes.\n\")
+There is a loud hissing noise coming from the pipes.\n")
     slow_text(f"\n\t({ETS_user.user_name}): \"The zombies have must have caused damage to the pipes\n\
 we need to head to the boiler room in order to figure out what is going on...\"\n")
-
+    storyline_paragraph("\n There is a bloated body in the corner of the room. A ring of keys lays on his chest.\n\
+Strange symbols are on the keys.")
+    boiler_keys.extend(boiler_keys_full)
     while temperature < 125:
         for key in boiler_keys:
-            print(keys)
+            print(key.title())
         slow_text(f"\nThe current room temperature is {temperature} degrees \n") 
         user_key = input("\n\nWhat key do you want try:  \n").lower()
         if user_key in boiler_keys:
             pass
         else:
-            storyline_paragraph("you entered the wrong key! please enter the correct key.").upper()
+            storyline_paragraph("\nyou entered the wrong key! please enter the correct key.\n".upper())
             continue
         if user_key == "blood":
             storyline_paragraph("\nAlpha team chose the correct key after examining the boiler room.\n\
 Alpha team became confused when they did not see any damage to the pipes. \n")
-            slow_text(f"\n\t({ETS_user.user_name}): \"I really thought we would find something boilerroom.\"\n")
-            storyline_paragraph(" Alpha team growns impatient as communication issues persist and alpha team\n\
+            slow_text(f"\n\t({ETS_user.user_name}): \"I really thought we would find something boilerroom.\"\n\n")
+            storyline_paragraph("\nAlpha team growns impatient as communication issues persist and alpha team\n\
 needs to find bravo team before it's too late, so the team continues deeper to explore the basement.\n\
-They find a door that leads to the ELECTRICAL ROOM")
+They find a door that leads to the ELECTRICAL ROOM\n")
             electrical_room(ETS_user)
             break
         else:
             temperature += 20 
             boiler_keys.remove(user_key)
-            storyline_paragraph(f"{ETS_user.user_name}\'s notices there is a WARNING ALARM for increasing temperature.\n")
-            slow_text("\"The Door is Still Locked\"\n\n")
+            storyline_paragraph(f"\n{ETS_user.user_name}\'s notices there is a WARNING ALARM for increasing temperature.\n")
+            slow_text("\n\"The Door is Still Locked\"\n\n")
     if temperature == 125:
+        slow_text(f"\nThe current room temperature is {temperature} degrees \n".upper())
         storyline_paragraph("The Room is engulfed in flames!!!!\n")
         slow_text("\tYou the burned the Alpha Team!!! Game Over\n\n")
         retry = input("Try again? (Y/N)\n").lower()
@@ -166,7 +171,7 @@ def hit_door_hp(door_hp = 20):
     return door_hp
 
 def electrical_room(ETS_user):
-    storyline_paragraph(f"As the Alpha team enters the Electrical Room, they realize that the zombies have been\n\
+    storyline_paragraph(f"\nAs the Alpha team enters the Electrical Room, they realize that the zombies have been\n\
 jamming the communications all along. In the control room is an emgercy communication circuit breaker.\n\
 {ETS_user.user_name} notices a lever that control the circuit.\n")
 
@@ -176,8 +181,8 @@ jamming the communications all along. In the control room is an emgercy communic
         lever_input = input("\nWhich direction do you want to pull the lever?\n\
             [\"left\",\"right\", \"up\", \"down\"]")
     
-        if random_choice == lever_input: 
-            print(f"You chose '{lever_input}''.The correct choice was '{random_choice}'.")
+        if random_lever_choice == lever_input: 
+            print(f"You chose '{lever_input}''.The correct choice was '{random_lever_choice}'.")
             print(f"The power hummms as the generator is being restored")
             break
         else:
@@ -289,11 +294,29 @@ From many levels below comes the sound of heavy machinery and gears slowly grind
     slow_text(f"\n\t({ETS_user.user_name}): \"We have to shut this damn thing down!\"\n")
     storyline_paragraph(f"\nNear the wall is an emergency shut off switch, with wires exposed. {ETS_user.user_name} rushes over to examine the switch\n")
     cuts = 0
+    wires = []
+    wires.extend(wires_full)
     #print(correct_wire.upper())
     while cuts < 3:
         for wire in wires:
-            print(wire)
-        user_wire = input("\n\nWhat color wire will you cut:  \n").lower()
+            if wire == "red":
+                print(Fore.RED+wire)
+            elif wire == "green":
+                print(Fore.GREEN+wire)
+            elif wire == "blue":
+                print(Fore.BLUE+wire)
+            elif wire == "yellow":
+                print(Fore.YELLOW+wire)
+            elif wire == "cyan":
+                print(Fore.CYAN+wire)
+            elif wire == "magenta":
+                print(Fore.MAGENTA+wire)
+        user_wire = input("\n\nWhat color wire will you cut:  \n".lower())
+        if user_wire in wires:
+            pass
+        else:
+            fast_text(f"{ETS_user.user_name} rubs their eyes, they didn't select the right wire!\n\n")
+            continue
         if user_wire == correct_wire:
             storyline_paragraph("\nThe decontamination chamber doors open and oxygen is pumped back into the room.\n")
             break
@@ -451,11 +474,11 @@ rng = np.random.default_rng()
 
 roof_access = "".join([str(x) for x in rng.integers(10, size =4)])
 
-wires = ["red", "blue", "green", "black", "yellow", "orange"]
+wires_full = ["red", "green", "blue", "yellow", "cyan", "magenta"]
 
-correct_wire = np.random.choice(wires, replace = False)
+correct_wire = np.random.choice(wires_full, replace = False)
 
-boiler_keys = ["skull","blood","heart","spine"]
+boiler_keys_full = ["skull","blood","heart","spine"]
 
 lever_direct = ["left", "right", "up", "down"]
 
