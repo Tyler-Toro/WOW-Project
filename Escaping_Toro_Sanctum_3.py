@@ -47,7 +47,7 @@ class Player:
         self.user_city = user_city
         self.user_country = user_country
 
-
+###collecting user input to be called later.
 def get_user_input():
     user_name = (input("What is your name, Team Leader?:\n").title())
     user_color = "red"
@@ -69,7 +69,7 @@ def get_user_input():
     user_city = "Jekyll"
     user_country = "USA"
     return(Player(user_name, user_color, user_weight, user_item, bravo_leader, user_city, user_country))
-
+##using user class with calling input
 ETS_user = get_user_input()
 
 starting_question(ETS_user)
