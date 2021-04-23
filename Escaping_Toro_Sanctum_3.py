@@ -8,7 +8,7 @@ import numpy as np
 init(autoreset= True)
 
 slow = 2.5
-dia = 0.1
+dia = 0.07
 quick = 0.01
 step = 1
 
@@ -68,7 +68,7 @@ def get_user_input():
         user_item = "A bronze compass"
     else:
         user_item = "empty"
-    bravo_leader = "chris"
+    bravo_leader = "Lt. Macdonald"
     user_city = "Jekyll"
     user_country = "USA"
     return(Player(user_name, user_color, user_weight, user_item, bravo_leader, user_city, user_country))

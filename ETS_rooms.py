@@ -80,7 +80,7 @@ With a slight push of the doors, radio static can be fainlty heard emanating fro
 and decending steps, but the team heads towards the noise..\n")
     pause()
     slow_text(f"\n\n\t({ETS_user.user_name}): \"We need to recon with Bravo and figure out what happened here. Maybe the storm is interf-\n")
-    slow_text("\n!!!!ffffffffffffffffffffffffffffssssssssssssssssssssssssssssssssshhhhhhhhhhhhhhhhhhhhhhhhhhhh!!!!!!!\n")
+    fast_text("\n!!!!ffffffffffffffffffffffffffffssssssssssssssssssssssssssssssssshhhhhhhhhhhhhhhhhhhhhhhhhhhh!!!!!!!\n")
     storyline_paragraph("\n\nEvery piece of radio equipment on Team Alpha bursts into noise, echoing throughout the landings above.")
     slow_text(f"\n\t({ETS_user.user_name}): \"What the-- Comms off, turn comms off! ..We're going deaf and blind at this point\"\n")
     storyline_paragraph(f"\nThere are no sounds but footsteps. Team Alpha reaches the basement level, where {ETS_user.user_name} finds a radio on the ground.\n\
@@ -91,7 +91,7 @@ There is a directory on the wall\n")
     ##### Both choices 1&2 fork off in basement #########################################
     #################################################################################
 
-    basement_fork_one = input(" What direction will you take Team Alpha? \n\
+    basement_fork_one = input("\nWhat direction will you take Team Alpha? \n\
 [Select 1 or 2, then press <enter> ]\n\n\
 1) Right: \'Boiler Room\'\n\
 2) Left: \'Electrical Power System\'\n")
@@ -111,12 +111,12 @@ There is a directory on the wall\n")
 def boiler_room(ETS_user):
     boiler_keys = []
     temperature = 65
-    storyline_paragraph("As Alphas team enters the boiler room...\n\
+    storyline_paragraph("\nAs Alphas team enters the boiler room...\n\
 There is a loud hissing noise coming from the pipes.\n")
     slow_text(f"\n\t({ETS_user.user_name}): \"The zombies have must have caused damage to the pipes\n\
 we need to head to the boiler room in order to figure out what is going on...\"\n")
     storyline_paragraph("\n There is a bloated body in the corner of the room. A ring of keys lays on his chest.\n\
-Strange symbols are on the keys.")
+Strange symbols are on the keys.\n")
     boiler_keys.extend(boiler_keys_full)
     while temperature < 125:
         for key in boiler_keys:
@@ -179,8 +179,12 @@ jamming the communications all along. In the control room is an emgercy communic
     attempts = 0
     while attempts < 4:
         lever_input = input("\nWhich direction do you want to pull the lever?\n\
-            [\"left\",\"right\", \"up\", \"down\"]")
-    
+            [\"left\",\"right\", \"up\", \"down\"]\n")
+        if lever_input in lever_direct:
+            pass
+        else:
+            fast_text("\nYou entered a wrong direction! Please try again\n\n")
+            continue
         if random_lever_choice == lever_input: 
             print(f"You chose '{lever_input}''.The correct choice was '{random_lever_choice}'.")
             print(f"The power hummms as the generator is being restored")

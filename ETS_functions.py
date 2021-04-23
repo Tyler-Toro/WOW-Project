@@ -7,7 +7,7 @@ import os
 import numpy as np
 
 slow = 2.5
-dia = 0.1
+dia = 0.07
 quick = 0.01
 step = 1
 
@@ -31,7 +31,7 @@ def slow_text(text):
     for letter in text:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(quick)
+        time.sleep(dia)
     time.sleep(dia)
 
 def fast_text(text, delay = quick):
@@ -39,13 +39,13 @@ def fast_text(text, delay = quick):
         sys.stdout.write(letter)
         sys.stdout.flush()
         time.sleep(delay)
-    time.sleep(quick)
+    time.sleep(dia)
 
 def storyline_paragraph(text):
     for line in text.split("\n"):
         print(line, flush = True)
-        time.sleep(quick)
-    time.sleep(quick)
+        time.sleep(step)
+    time.sleep(dia)
 
 def starting_question(ETS_user):
     start_esaping_sanctum = input(f"{ETS_user.user_name}, would you like to Start? (Y/N):\n")
@@ -59,7 +59,7 @@ def starting_question(ETS_user):
         starting_question(ETS_user)
 
 def header():
-    storyline_paragraph("  \t\t   .... ............... ..........................\n\
+    fast_text("  \t\t   .... ............... ..........................\n\
   \t\t   .. ......................... .......... .......\n\
   \t\t   ...... ..... ......... ........................\n\
   \t\t   .........  Escaping Toro Sanctum...... ........\n\
