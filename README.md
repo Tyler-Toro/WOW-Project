@@ -39,6 +39,8 @@ We used the following **libraries** in our project:
     Used to manipulate speed of text output and delays to the terminal
 - Colorama
     Used to change character color via the terminal
+    - Fore  *changes character foreground text color*
+    - Init  *initializes colorama*
 - OS
     Used to create paths and use functions with the current operating system
 
