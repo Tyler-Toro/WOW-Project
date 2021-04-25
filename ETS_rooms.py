@@ -8,7 +8,7 @@ init(autoreset= True)
 #######This file contains all of our rooms that we call and use in the game.
 
 def escaping_sanctum(ETS_user):
-    escaping_sanctum0 = input("\nWill you search for Bravo Team and Escape Toro Sanctum? (Y/N)\n")
+    escaping_sanctum0 = input("\nWill you search for Bravo Team and Escape Toro Sanctum? (Y/N)\n>>>")
     if escaping_sanctum0 == "n" or escaping_sanctum0 == "N":
         print("Understood\n")
         time.sleep(step)
@@ -39,7 +39,7 @@ a sudden muffled sound that freezes {ETS_user.user_name} in their tracks\n")
     1) Use the main stairs and search the basement?\n\
     2) Head towards the emergency exit through the lab?\n\
     3) Climb the stairs to the roof access point?\n\
-    4) Rappel down the elevator shaft?\n")
+    4) Rappel down the elevator shaft?\n\n>>>")
     if escaping_sanctum2 == "1":
         time.sleep(quick)
         basement(ETS_user)
@@ -58,7 +58,7 @@ Once inside the poorly lit elevator shaft, a small sign comes into view..\n")
         slow_text(f"\n\nWARNING: MAXIMUM WEIGHT FOR LATCH {(int(ETS_user.user_weight)-20)} LBS...\n")
         storyline_paragraph("       SNAP!\n")
         header()
-        retry = input("Game over. Try again? (Y/N):\n")
+        retry = input("Game over. Try again? (Y/N):\n>>>")
         if retry == "n" or retry == "N":
             sys.exit()
         else:
@@ -81,7 +81,7 @@ def basement(ETS_user):
 With a slight push of the doors, radio static can be fainlty heard emanating from below. {ETS_user.user_color.title()} lights illuminate ascending \n\
 and decending steps, but the team heads towards the noise..\n")
     pause()
-    slow_text(f"\n\n\t({ETS_user.user_name}): \"We need to recon with Bravo and figure out what happened here. Maybe the storm is interf-\n")
+    slow_text(f"\n\n\t({ETS_user.user_name}): \"We need to rendezvous with Bravo and figure out what happened here. Maybe the storm is interf-\n")
     fast_text("\n!!!!ffffffffffffffffffffffffffffssssssssssssssssssssssssssssssssshhhhhhhhhhhhhhhhhhhhhhhhhhhh!!!!!!!\n")
     storyline_paragraph("\n\nEvery piece of radio equipment on Team Alpha bursts into noise, echoing throughout the landings above.")
     slow_text(f"\n\t({ETS_user.user_name}): \"What the-- Comms off, turn comms off! ..We're going deaf and blind at this point\"\n")
@@ -96,7 +96,7 @@ There is a directory on the wall\n")
     basement_fork_one = input("\nWhat direction will you take Team Alpha? \n\
 [Select 1 or 2, then press <enter> ]\n\n\
 1) Right: \'Boiler Room\'\n\
-2) Left: \'Electrical Power System\'\n")
+2) Left: \'Electrical Power System\'\n\n>>>")
 
     if basement_fork_one == "1":
         time.sleep(step)
@@ -117,14 +117,14 @@ def boiler_room(ETS_user):
 There is a loud hissing noise coming from the pipes.\n")
     slow_text(f"\n\t({ETS_user.user_name}): \"The zombies have must have caused damage to the pipes\n\
 we need to head to the boiler room in order to figure out what is going on...\"\n")
-    storyline_paragraph("\n There is a bloated body in the corner of the room. A ring of keys lays on his chest.\n\
+    storyline_paragraph("\n There is a bloated body in the corner of the room in a pool of blood. A ring of keys lays on his chest.\n\
 Strange symbols are on the keys.\n")
     boiler_keys.extend(boiler_keys_full)
     while temperature < 125:
         for key in boiler_keys:
             print(key.title())
         slow_text(f"\nThe current room temperature is {temperature} degrees \n") 
-        user_key = input("\n\nWhat key do you want try:  \n").lower()
+        user_key = input("\n\nWhat key do you want try?:  \n>>>").lower()
         if user_key in boiler_keys:
             pass
         else:
@@ -133,8 +133,8 @@ Strange symbols are on the keys.\n")
         if user_key == "blood":
             storyline_paragraph("\nAlpha team chose the correct key after examining the boiler room.\n\
 Alpha team became confused when they did not see any damage to the pipes. \n")
-            slow_text(f"\n\t({ETS_user.user_name}): \"I really thought we would find something boilerroom.\"\n\n")
-            storyline_paragraph("\nAlpha team growns impatient as communication issues persist and alpha team\n\
+            slow_text(f"\n\t({ETS_user.user_name}): \"I really thought we would find something in the boiler room.\"\n\n")
+            storyline_paragraph("\nAlpha team growns inpatient as communication issues persist and alpha team\n\
 needs to find bravo team before it's too late, so the team continues deeper to explore the basement.\n\
 They find a door that leads to the ELECTRICAL ROOM\n")
             electrical_room(ETS_user)
@@ -148,7 +148,7 @@ They find a door that leads to the ELECTRICAL ROOM\n")
         slow_text(f"\nThe current room temperature is {temperature} degrees \n".upper())
         storyline_paragraph("The Room is engulfed in flames!!!!\n")
         slow_text("\tYou the burned the Alpha Team!!! Game Over\n\n")
-        retry = input("Try again? (Y/N)\n").lower()
+        retry = input("Try again? (Y/N)\n>>>").lower()
         if retry == "n" or retry == "N":
             sys.exit()
         elif retry == "y" or retry == "Y":
@@ -162,14 +162,14 @@ They find a door that leads to the ELECTRICAL ROOM\n")
 def door_damage():
     damaging = input("\n  press <enter> to break the door...\n")
 
-def hit_door_hp(door_hp = 20):  ######The health of the door
+def hit_door_hp(door_hp = 100):  ######The health of the door
     while door_hp > 0:          
         door_damage()
         door_hp = door_hp - 5
         if door_hp != 0:
             print(f"You have weakened the door down to {door_hp}% of its strength\n")
         else:
-            print(f"\"WARNING!!! Failure!!! WARNING Door is it at {door_hp}%.\" You have broken through the door!!!\n")
+            print(f"\"WARNING!!! Failure!!! WARNING!! Door is it at {door_hp}%.\" You have broken through the door!!!\n")
     return door_hp
 
 def electrical_room(ETS_user):
@@ -179,9 +179,9 @@ jamming the communications all along. In the control room is an emgercy communic
 
     pause()
     attempts = 0
-    while attempts < 4:
+    while attempts < 3:
         lever_input = input("\nWhich direction do you want to pull the lever?\n\
-            [\"left\",\"right\", \"up\", \"down\"]\n")
+            [\"left\",\"right\", \"up\", \"down\"]\n\n>>>")
         if lever_input in lever_direct:
             pass
         else:
@@ -194,9 +194,9 @@ jamming the communications all along. In the control room is an emgercy communic
         else:
             attempts += 1
             storyline_paragraph("Nothing Happened")
-    if attempts == 4:
+    if attempts == 3:
             storyline_paragraph("The lever cracks, trapping team Alpha in the room.")
-            retry = input("Game Over. Try again? (Y/N)\n")
+            retry = input("Game Over. Try again? (Y/N)\n>>>")
             if retry == "n" or retry == "N":
                 sys.exit()
             elif retry == "y" or retry == "Y":
@@ -214,7 +214,7 @@ jamming the communications all along. In the control room is an emgercy communic
     basement_fork_two = input(f"{ETS_user.user_name}, what direction will you take Team Alpha? \n\
     [Select 1 or 2, then press <enter> ]\n\n\
     1) Right: \'Freezer Section: Unit B\'\n\
-    2) Straight: \'Dry Storage: Unit A\'\n")
+    2) Straight: \'Dry Storage: Unit A\'\n\n>>>")
     if basement_fork_two == "1":
         time.sleep(step)
         basement_unitB(ETS_user)
@@ -268,10 +268,10 @@ the darkness. The LED light is the same as on everyone\'s radio.\n")
     slow_text(f"\n\t({ETS_user.user_name}): ...\"What th--!\"\n")
     pause()
     storyline_paragraph(f"The freezer door slams shut, several locks forced in place.\n\
-The slowing flash LED light tints the faces engulfing {ETS_user.user_name}...\n")
+The slow flashing LED light tints the faces of zombies engulfing {ETS_user.user_name}...\n")
     header()
     slow_text("\tGame Over\n\n")
-    retry = input("Try again? (Y/N)\n")
+    retry = input("Try again? (Y/N)\n>>>")
     if retry == "n" or retry == "N":
         sys.exit()
     elif retry == "y" or retry == "Y":
@@ -317,7 +317,7 @@ From many levels below comes the sound of heavy machinery and gears slowly grind
                 print(Fore.CYAN+wire)
             elif wire == "magenta":
                 print(Fore.MAGENTA+wire)
-        user_wire = input("\n\nWhat color wire will you cut:  \n".lower())
+        user_wire = input("\n\nWhat color wire will you cut:  \n>>>").lower()
         if user_wire in wires:
             pass
         else:
@@ -334,7 +334,7 @@ From many levels below comes the sound of heavy machinery and gears slowly grind
     if cuts == 3:
         storyline_paragraph(f"{ETS_user.user_name}\'s vision becomes blurry as the room reaches 0% oxygen level, coughing, Team Alpha falls to the ground\n")
         slow_text("\tGame Over\n\n")
-        retry = input("Try again? (Y/N)\n").lower()
+        retry = input("Try again? (Y/N)\n>>>").lower()
         if retry == "n" or retry == "N":
             sys.exit()
         elif retry == "y" or retry == "Y":
@@ -358,7 +358,7 @@ moves toward the emergency exit. The emergency exit doors are blocked by a mount
     lab_fork = input(f"{ETS_user.user_name}, what will you do next? \n\
     [Select 1 or 2, then press <enter> ]\n\n\
     1) Onward: \'Dig out emergency exit\'\n\
-    2) Go back: \'Return to lobby and take stairs to basement\'\n")
+    2) Go back: \'Return to lobby and take stairs to basement\'\n\n>>>")
     if lab_fork == "1":
         time.sleep(step)
         lab_onward(ETS_user)
@@ -379,12 +379,12 @@ def lab_onward(ETS_user):
     storyline_paragraph(f"\nThe Team begins unblocking the emergency exit doors. The massive equipment pieces take the \n\
 entire team to move aside. Shards of glass fall off of repositioned boxes. Something catches {ETS_user.user_name}\'s eye.\n")
     pause()
-    storyline_paragraph("\nAmong the glass are pieces of shredded clothing and hair\n\n")
+    storyline_paragraph("\nAmong the glass are pieces of shredded flesh and clumps of hair\n\n")
     slow_text(".............................\n")
     slow_text(f"\n\t({ETS_user.user_name}): \"......WAIT....ALPHA TEAM FALL BAC------\n")
-    storyline_paragraph("\nThe exit doors plunge open. Alpha team is bombarded, surrounded in seconds\n")
+    storyline_paragraph("\nThe exit doors plunge open. Alpha team is bombarded, surrounded in seconds by dozens of screaming zombies\n")
     header()
-    retry = input("Game Over. Try again? (Y/N)\n")
+    retry = input("Game Over. Try again? (Y/N)\n>>>")
     if retry == "n" or retry == "N":
         sys.exit()
     elif retry == "y" or retry == "Y":
@@ -410,8 +410,8 @@ def lab_flee(ETS_user):
 def roof(ETS_user):
     slow_text("\n\t\t\t __Rooftop__\t\n\n")
     storyline_paragraph(f"\n\nTeam Alpha led by {ETS_user.user_name} heads towards the staircase and starts the long climb to the roof\n\
-access door. The light becomes dimmer and dimmer as they accend, the faint outline of a large metal door seems further away with each step.\n\
-The sound of rain and distant thunber can be felt humming behind the steel door. The door is being held open by something... \n\
+access door. The light becomes dimmer and dimmer as they ascend, the faint outline of a large metal door seems further away with each step.\n\
+The sound of rain and distant thunder can be felt humming behind the steel door. The door is being held open by something... \n\
 {ETS_user.user_name} reaches down and pushes the door slightly to grab the small object")
     slow_text(f"\n\t({ETS_user.user_name}): \"What is this? It looks like a small bone...\n")
     storyline_paragraph(f"\nThe Team kicks open the door and rushes the rooftop. In every direction are bullet casings and empty ammunition\n\
@@ -423,11 +423,11 @@ Apache helicopter is military grade...The team moves further onto the roof when 
     slow_text(f"\n\t({ETS_user.user_name}): \"Dammit! The keypad barely has power supply.\n")
     storyline_paragraph(f"\nStill gripping the small bone, {ETS_user.user_name} feels something carved into it. There are a series of numbers but some are\n\
 too difficult to make out. All that is legible is \"_ _ {roof_access[2:]}\"")
-    print(roof_access)
+    #print(roof_access)
     #print((str(roof_access[0]))+(str(roof_access[1])))
     attempt_count = 0
-    while attempt_count < 3:                                      # PyTest ??
-        roof_attempt = input("\n\t Enter the correct access pin:")
+    while attempt_count < 3:                                     
+        roof_attempt = input("\n\t Enter the correct access number:\n>>>")
         if roof_attempt == roof_access:
             slow_text("\n\t<<<Access granted>>>\n\n")
             pause()
@@ -437,7 +437,7 @@ door just as decayed arms and hands are within reach. The team heads straight to
             break
         else:
             attempt_count += 1   # PlUS EQUALS 5 HEAD
-            slow_text("\n\tinvalid entry\n") 
+            slow_text("\n\t<<<Access Denied>>>\n") 
     if attempt_count == 3:
         storyline_paragraph(f"\n\nAn alarm blares from the rooftop and echoes throughout the island. The access door keypad flashes {ETS_user.user_color}\n\
 as smoke rises from the power circuit. The alarm continues on as flocks of birds scatter off of distant tree tops. As the sirens screech...a closer\n\
@@ -447,7 +447,7 @@ sound becomes audible...")
         slow_text(f"\n\t({ETS_user.user_name}): \"What the -----\n")
         storyline_paragraph(f"All at once, dozens of zombies rise up and slowly head towards team Alpha. {ETS_user.user_name} punches\n\
 the access panel and shuts off the alarm system. The zombies move closer and closer to the team")
-        storyline_paragraph(f"The team heads to the rooftop ledge and stares down that the concrete below. With no choice left, {ETS_user.user_name}\n\
+        storyline_paragraph(f"The team heads to the rooftop ledge and stares down at the concrete below. With no choice left, {ETS_user.user_name}\n\
 orders the team to rappel down to the nearest window\n")
         roof_escape(ETS_user)
         
@@ -462,7 +462,7 @@ concrete surface. The room is dark and humid, the air acrid.\n")
     slow_text(f"\n\t({ETS_user.user_name}): Something's not right in here...\"\n")
     fast_text("\n...........hhhHHHHRNNNGAAA!!!\n")
     storyline_paragraph(f"\n{ETS_user.user_name} raises a flashlight and illuminates the faces of a zombie hoard rushing toward Team Alpha..\n")
-    retry = input("Game Over. Try again? (Y/N)\n")
+    retry = input("Game Over. Try again? (Y/N)\n>>>")
     if retry == "n" or retry == "N":
         sys.exit()
     elif retry == "y" or retry == "Y":

@@ -48,7 +48,7 @@ def storyline_paragraph(text):
     time.sleep(dia)
 
 def starting_question(ETS_user):
-    start_esaping_sanctum = input(f"{ETS_user.user_name}, would you like to Start? (Y/N):\n")
+    start_esaping_sanctum = input(f"\n{ETS_user.user_name}, would you like to Start? (Y/N):\n>>>")
     if start_esaping_sanctum == "n" or start_esaping_sanctum == "N":
         print("Game Over. Please reload program")
         sys.exit()

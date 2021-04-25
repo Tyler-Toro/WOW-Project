@@ -52,14 +52,14 @@ class Player:
 
 ###collecting user input to be called later.
 def get_user_input():
-    user_name = (input("What is your name, Team Leader?:\n").title())
+    user_name = (input("What is your name, Team Leader?:\n>>>").title())
     user_color = "red"
-    user_weight = input_weight("\nIn lbs, how much do you weigh?:\n")
-    user_item = input("\n Of the following, which item would you choose to carry with you? \n\
+    user_weight = input_weight("\nIn lbs, how much do you weigh?:\n>>>")
+    user_item = input("\nOf the following, which item would you choose to carry with you? \n\
     [Select 1, 2, or 3 then press <enter> ]\n\n\
     1) A lucky coin\n\
     2) A golden locket\n\
-    3) A bronze compass\n")
+    3) A bronze compass\n\n>>>")
     if user_item == "1":
         user_item = "A lucky coin"
     elif user_item == "2":
@@ -70,7 +70,7 @@ def get_user_input():
         user_item = "empty"
     bravo_leader = "Lt. Macdonald"
     user_city = "Jekyll"
-    user_country = "USA"
+    user_country = "the United States"
     return(Player(user_name, user_color, user_weight, user_item, bravo_leader, user_city, user_country))
 ##using user class with calling input
 ETS_user = get_user_input()
