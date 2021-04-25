@@ -1,17 +1,60 @@
-# WOW-Project
+# Escaping Toro Sanctum
 Our game is called Escaping Toro Sanctum(ETS). It was worked on by Tyler Toro, Lavonte Carter, and Leo Redko.
-It is a text-based adventure game that lets the user choose his own path. 
+It is a text-based adventure game that lets the user choose their own path. 
 
 
-
+(premise of the game)
  
 
+## How to run and install Escaping Toro Sanctum
+
+For the purposes of running the game successfully, makes sure to clone this repository into a clean directory. All files should be saved into this folder to function properly. All the code is written in Python version 3.9.4 and can be ran through a local terminal, all python libraries/modules listed below must be installed for Escaping Toro Sanctum to be ran *(except pytest)*. 
+
+## Main Branch Files 
+
+### Escaping_Toro_Sanctum.py 
+This is the main game file. Please run this file to ***start*** the game.
+
+### ETS_intro.py
+This is the backstory and introduction to the game
+
+### ETS_functions.py
+This file holds the functions that let the game run properly
+
+### ETS_rooms.py
+This large file is comprised of game locations and puzzles
+
+### functions_test.py
+This file is soley for unit testing purposes and is not utilized to run ETS
 
 
-## Escaping Toro Sanctum 
-We used the following libraries in our project: Numpy,Sys,Time,Colorama,OS
+## External Libraries  
+
+We used the following **libraries** in our project: 
+- Numpy
+    Used to randomize puzzle output to ensure each game experience is unique
+- Sys
+    Used to manipulate the python environment
+- Time
+    Used to manipulate speed of text output and delays to the terminal
+- Colorama
+    Used to change character color via the terminal
+- OS
+    Used to create paths and use functions with the current operating system
+
+- Pytest *unit testing code/functions*
+    - Builtins
+        To gain access to built-in modules or when working with similiarly named functions
+    - Mock
+        Used to simulate user input in a test environment
 
 
-Below is a diagram of our main branch which is our Game Architecture. 
+
+
+
+### Below is a diagram of our main branch which is our Game File Architecture. 
 
 ![ETS - Game Architecture](https://user-images.githubusercontent.com/78003415/115936886-744fbe00-a464-11eb-9387-94eed2140ec6.png)
+
+
+### Below is a flow chart of the game storyline.
