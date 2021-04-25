@@ -1,9 +1,11 @@
 from ETS_functions import *
 import sys
-from numpy import *
-from colorama import Fore, init
+from numpy import *  #####Used for random generation of puzzles
+from colorama import Fore, init ####Used to add some color to our wire puzzle
 init(autoreset= True)
 
+
+#######This file contains all of our rooms that we call and use in the game
 
 def escaping_sanctum(ETS_user):
     escaping_sanctum0 = input("\nWill you search for Bravo Team and Escape Toro Sanctum? (Y/N)\n")
