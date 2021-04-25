@@ -5,7 +5,7 @@ from colorama import Fore, init ####Used to add some color to our wire puzzle
 init(autoreset= True)
 
 
-#######This file contains all of our rooms that we call and use in the game
+#######This file contains all of our rooms that we call and use in the game.
 
 def escaping_sanctum(ETS_user):
     escaping_sanctum0 = input("\nWill you search for Bravo Team and Escape Toro Sanctum? (Y/N)\n")
@@ -140,7 +140,7 @@ They find a door that leads to the ELECTRICAL ROOM\n")
             electrical_room(ETS_user)
             break
         else:
-            temperature += 20 
+            temperature += 20 #####increases the temp by 20 every try the user makes an incorrect choice
             boiler_keys.remove(user_key)
             storyline_paragraph(f"\n{ETS_user.user_name}\'s notices there is a WARNING ALARM for increasing temperature.\n")
             slow_text("\n\"The Door is Still Locked\"\n\n")
@@ -162,8 +162,8 @@ They find a door that leads to the ELECTRICAL ROOM\n")
 def door_damage():
     damaging = input("\n  press <enter> to break the door...\n")
 
-def hit_door_hp(door_hp = 20):
-    while door_hp > 0:
+def hit_door_hp(door_hp = 20):  ######The health of the door
+    while door_hp > 0:          
         door_damage()
         door_hp = door_hp - 5
         if door_hp != 0:
@@ -475,7 +475,7 @@ concrete surface. The room is dark and humid, the air acrid.\n")
 
 
 ## Puzzle variables ########################
-
+####The user will recieve a different random order of the puzzle everytime due to the use of random from numpy.
 rng = np.random.default_rng()
 
 roof_access = "".join([str(x) for x in rng.integers(10, size =4)])
