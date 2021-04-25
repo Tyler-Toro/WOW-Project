@@ -58,3 +58,4 @@ We used the following **libraries** in our project:
 
 
 ### Below is a flow chart of the game storyline.
+![ETS - Storyline flow chart](https://user-images.githubusercontent.com/78003415/116010009-80fe1e80-a5ea-11eb-9c7c-1b21f5e5f091.png)
