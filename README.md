@@ -1,19 +1,20 @@
 # Escaping Toro Sanctum
-Our game is called Escaping Toro Sanctum(ETS). It was worked on by Tyler Toro, Lavonte Carter, and Leo Redko.
-It is a text-based adventure game that lets the user choose their own path. 
+Our game is Escaping Toro Sanctum(ETS). It was worked on by Tyler Toro, Lavonte Carter, and Leo Redko.
+It is a text-based adventure game that lets the user choose their own path with varying outcomes. The story takes place on an island in which the player searches for a missing team. 
 
+One major challenge we overcame was simplifying the code, variable scoping across multpile files, and calling functions. We were able to use Python class mechanisms to intialize a user class, called Player(), which allowed us to easily take in user input and later calling these into functions across all game files. 
 
-(premise of the game)
- 
+Our group name is LaborisGloriaLudi, which means "Games are the Glory of Work"
+
 
 ## How to run and install Escaping Toro Sanctum
 
-For the purposes of running the game successfully, makes sure to clone this repository into a clean directory. All files should be saved into this folder to function properly. All the code is written in Python version 3.9.4 and can be ran through a local terminal, all python libraries/modules listed below must be installed for Escaping Toro Sanctum to be ran *(except pytest)*. 
+For the purposes of running the game successfully, makes sure to clone this repository into a clean directory. All files should be saved into this folder to function properly. All the code is written in Python version 3.9.4 and can be ran through a local terminal; all python libraries/modules listed below must be installed for Escaping Toro Sanctum to be ran *(except pytest)*. 
 
 ## Main Branch Files 
 
 ### Escaping_Toro_Sanctum.py 
-This is the main game file. Please run this file to ***start*** the game.
+This is the main game file. ***Please run this file to start the game.***
 
 ### ETS_intro.py
 This is the backstory and introduction to the game
@@ -28,7 +29,7 @@ This large file is comprised of game locations and puzzles
 This file is soley for unit testing purposes and is not utilized to run ETS
 
 
-## External Libraries  
+## Python Libraries/Modules used
 
 We used the following **libraries** in our project: 
 - Numpy
