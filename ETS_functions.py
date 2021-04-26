@@ -44,7 +44,7 @@ def fast_text(text, delay = quick):
 def storyline_paragraph(text):
     for line in text.split("\n"):
         print(line, flush = True)
-        time.sleep(quick)
+        time.sleep(dia)
     time.sleep(quick)
 
 def starting_question(ETS_user):
@@ -59,7 +59,7 @@ def starting_question(ETS_user):
         starting_question(ETS_user)
 
 def header():
-    storyline_paragraph("  \t\t   .... ............... ..........................\n\
+    storyline_paragraph("  \n\t\t   .... ............... ..........................\n\
   \t\t   .. ......................... .......... .......\n\
   \t\t   ...... ..... ......... ........................\n\
   \t\t   .........  Escaping Toro Sanctum...... ........\n\
@@ -68,3 +68,7 @@ def header():
   \t\t   :::::::::::::::::::::::::::::::::::::::::::::::\n\n\n")
 
 
+def Viewfile(file_name):
+    with open(file_name,'r') as viewFileOpen:
+        data = viewFileOpen.read()
+    fast_text(data, 0.00001)

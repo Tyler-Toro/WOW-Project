@@ -144,6 +144,7 @@ the darkness. The LED light is the same as on everyone\'s radio.\n")
     pause()
     storyline_paragraph(f"The freezer door slams shut, several locks forced in place.\n\
 The slowing flash LED light tints the faces engulfing {ETS_user.user_name}...\n")
+    Viewfile("zombie_face.txt")
     header()
     slow_text("\tGame Over\n\n")
     retry = input("Try again? (Y/N)\n")
