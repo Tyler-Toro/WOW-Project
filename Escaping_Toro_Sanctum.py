@@ -6,8 +6,8 @@ from colorama import Fore, init
 import numpy as np
 
 init(autoreset= True)
-
-slow = 2.5
+#####time delays and speeds for printing out text
+slow = 2.5          
 dia = 0.07
 quick = 0.01
 step = 1
