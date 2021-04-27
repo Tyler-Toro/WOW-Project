@@ -59,7 +59,7 @@ def starting_question(ETS_user):
         starting_question(ETS_user)
 
 def header():
-    fast_text("  \t\t   .... ............... ..........................\n\
+    fast_text("  \n\t\t   .... ............... ..........................\n\
   \t\t   .. ......................... .......... .......\n\
   \t\t   ...... ..... ......... ........................\n\
   \t\t   .........  Escaping Toro Sanctum...... ........\n\
@@ -68,3 +68,7 @@ def header():
   \t\t   :::::::::::::::::::::::::::::::::::::::::::::::\n\n\n")
 
 
+def Viewfile(file_name):
+    with open(file_name,'r') as viewFileOpen:
+        data = viewFileOpen.read()
+    fast_text(data, 0.00001)

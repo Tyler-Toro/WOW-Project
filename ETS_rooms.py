@@ -162,14 +162,14 @@ They find a door that leads to the ELECTRICAL ROOM\n")
 def door_damage():
     damaging = input("\n  press <enter> to break the door...\n")
 
-def hit_door_hp(door_hp = 100):  ######The health of the door
+def hit_door_hp(door_hp = 25):  ######The health of the door
     while door_hp > 0:          
         door_damage()
         door_hp = door_hp - 5
         if door_hp != 0:
-            print(f"You have weakened the door down to {door_hp}% of its strength\n")
+            fast_text(f"You have weakened the door down to {door_hp}% of its strength\n")
         else:
-            print(f"\"WARNING!!! Failure!!! WARNING!! Door is it at {door_hp}%.\" You have broken through the door!!!\n")
+            slow_text(f"\"WARNING!!! Failure!!! WARNING!! Door is it at {door_hp}%.\" You have broken through the door!!!\n")
     return door_hp
 
 def electrical_room(ETS_user):
@@ -196,7 +196,9 @@ jamming the communications all along. In the control room is an emgercy communic
             storyline_paragraph("Nothing Happened")
     if attempts == 3:
             storyline_paragraph("The lever cracks, trapping team Alpha in the room.")
-            retry = input("Game Over. Try again? (Y/N)\n>>>")
+            Viewfile("images/img3.txt")
+            header()
+            retry = input("\nGame Over. Try again? (Y/N)\n>>>")
             if retry == "n" or retry == "N":
                 sys.exit()
             elif retry == "y" or retry == "Y":
@@ -269,6 +271,7 @@ the darkness. The LED light is the same as on everyone\'s radio.\n")
     pause()
     storyline_paragraph(f"The freezer door slams shut, several locks forced in place.\n\
 The slow flashing LED light tints the faces of zombies engulfing {ETS_user.user_name}...\n")
+    Viewfile("images/img1.txt")
     header()
     slow_text("\tGame Over\n\n")
     retry = input("Try again? (Y/N)\n>>>")
@@ -302,7 +305,6 @@ From many levels below comes the sound of heavy machinery and gears slowly grind
     cuts = 0
     wires = []
     wires.extend(wires_full)
-    #print(correct_wire.upper())
     while cuts < 3:
         for wire in wires:
             if wire == "red":
@@ -383,6 +385,7 @@ entire team to move aside. Shards of glass fall off of repositioned boxes. Somet
     slow_text(".............................\n")
     slow_text(f"\n\t({ETS_user.user_name}): \"......WAIT....ALPHA TEAM FALL BAC------\n")
     storyline_paragraph("\nThe exit doors plunge open. Alpha team is bombarded, surrounded in seconds by dozens of screaming zombies\n")
+    Viewfile("images/img2.txt")
     header()
     retry = input("Game Over. Try again? (Y/N)\n>>>")
     if retry == "n" or retry == "N":
@@ -423,8 +426,6 @@ Apache helicopter is military grade...The team moves further onto the roof when 
     slow_text(f"\n\t({ETS_user.user_name}): \"Dammit! The keypad barely has power supply.\n")
     storyline_paragraph(f"\nStill gripping the small bone, {ETS_user.user_name} feels something carved into it. There are a series of numbers but some are\n\
 too difficult to make out. All that is legible is \"_ _ {roof_access[2:]}\"")
-    #print(roof_access)
-    #print((str(roof_access[0]))+(str(roof_access[1])))
     attempt_count = 0
     while attempt_count < 3:                                     
         roof_attempt = input("\n\t Enter the correct access number:\n>>>")
@@ -433,6 +434,7 @@ too difficult to make out. All that is legible is \"_ _ {roof_access[2:]}\"")
             pause()
             storyline_paragraph(f"The team rushes through the door and races down the steps in growing darkness. {ETS_user.user_name} shuts the heavy\n\
 door just as decayed arms and hands are within reach. The team heads straight to the basement.\n")
+            Viewfile("images/img2.txt")
             basement(ETS_user)
             break
         else:
@@ -462,6 +464,8 @@ concrete surface. The room is dark and humid, the air acrid.\n")
     slow_text(f"\n\t({ETS_user.user_name}): Something's not right in here...\"\n")
     fast_text("\n...........hhhHHHHRNNNGAAA!!!\n")
     storyline_paragraph(f"\n{ETS_user.user_name} raises a flashlight and illuminates the faces of a zombie hoard rushing toward Team Alpha..\n")
+    Viewfile("images/img4.txt")
+    header()
     retry = input("Game Over. Try again? (Y/N)\n>>>")
     if retry == "n" or retry == "N":
         sys.exit()

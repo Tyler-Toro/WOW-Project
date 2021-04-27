@@ -24,6 +24,11 @@ from ETS_rooms import *
 ########################################################################################################################
 
 
+if os.get_terminal_size().columns < 150:
+    slow_text("WARNING: You're screen is not optimized to run Escaping Toro Sanctum. Please make your terminal wider after restarting the game. Thank you")
+    time.sleep(1)
+    sys.exit(1)
+
 print()
 time.sleep(step)
 header()
