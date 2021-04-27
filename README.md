@@ -55,7 +55,7 @@ We used the following **libraries** in our project:
 
 
 
-### Below is a diagram of our main branch which is our Game File Architecture. 
+### File Architecture: Below is a diagram of our game files and how the User Class is utilized throughout the other files. In addition, the diagram shows the relationship between the Functions file. 
 
 ![ETS - Game Architecture](https://user-images.githubusercontent.com/78003415/115936886-744fbe00-a464-11eb-9387-94eed2140ec6.png)
 
