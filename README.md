@@ -2,7 +2,7 @@
 Our game is Escaping Toro Sanctum(ETS). It was worked on by Tyler Toro, Lavonte Carter, and Leo Redko.
 It is a text-based adventure game that lets the user choose their own path with varying outcomes. The story takes place on an island in which the player searches for a missing team. 
 
-One major challenge we overcame was simplifying the code, variable scoping across multpile files, and calling functions. We were able to use Python class mechanisms to intialize a user class, called Player(), which allowed us to easily take in user input and later calling these into functions across all game files. 
+One major challenge we overcame was simplifying the code, variable scoping across multiple files, and calling functions. We were able to use Python class mechanisms to initialize a user class, called Player(), which allowed us to easily take in user input and later calling these into functions across all game files. 
 
 Our group name is LaborisGloriaLudi, which means "Games are the Glory of Work"
 
