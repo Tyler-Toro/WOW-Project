@@ -1,6 +1,6 @@
 from numpy import *
 class Zombie:
-    	def __init__(self):
+	def __init__(self):
 		self.hp = 6
 		self.dmg = 2
 
@@ -15,7 +15,7 @@ class Wild_Dog:
 		self.dmg = 1
  # not sure how to tie in the battle variable... 
 while battle == True:
-    				if Ets_User == 0:
+    if Ets_User == 0:
 					enemy_class = random.choice([Zombie, Dead_Team_Member, Wild_Dog])
 				else:
 					enemy_class = random.choice([Zombie, Dead_Team_Member, Wild_Dog])
