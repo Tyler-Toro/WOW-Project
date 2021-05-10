@@ -10,7 +10,7 @@ def zombie_battle(ETS_user):
     zombie = Zombie()
     while zombie.hp > 0 and ETS_user.hp > 0:
         print('A zombie has attacked you!')
-        user_input = input('Press A and then Enter to attack the zombie!' /n).lower()
+        user_input = input('Press A and then Enter to attack the zombie!').lower()
         if user_input == 'a': 
             zombie.update_health(ETS_user.dmg * -1)
             print(f"You have shot and dealt {ETS_user.dmg} damgage to the zombie")
@@ -34,11 +34,11 @@ class Dead_team_member:
 def Dead_team_member_battle(ETS_user):
     dead_team_member = Dead_team_member()
     while dead_team_member.hp > 0 and ETS_user.hp > 0:
-        user_input = input('Press A and then Enter to attack the dead team member!' /n).lower()
+        user_input = input('Press A and then Enter to attack the dead team member!').lower()
         if user_input == 'a': 
             dead_team_member.update_health(ETS_user.dmg * -1)
             print(f"You have shot and dealt {ETS_user.dmg} damgage to the dead team member")
-        ETS_user.update_health(zombie.dmg * -1)
+        ETS_user.update_health(dead_team_member.dmg * -1)
         print(f"You have been dealt {dead_team_member.dmg} damage by the dead team member")
         
     
