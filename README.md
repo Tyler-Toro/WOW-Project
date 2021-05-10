@@ -28,6 +28,9 @@ This large file is comprised of game locations and puzzles
 ### functions_test.py
 This file is soley for unit testing purposes and is not utilized to run ETS
 
+### ETS_battles.py
+This file is comprised of game enemy classes and battle functions
+
 
 ## Python Libraries/Modules used
 
