@@ -1,6 +1,8 @@
 # Welcome to Escaping Toro Sanctum (ETS)!!!
+This is my personal branch in our project, where I just push ideas for the group to review and go over. 
+##Leo Redko
 
-ETS is text-based adventure game written in python which can be ran in your command terminal.
+
 
 
 In this repo you will find the following files:
@@ -9,3 +11,5 @@ In this repo you will find the following files:
 **Room Functions File
 **User Class File
 **Pytest File
+**Battles file
+**Story ideas and puzzle ideas
