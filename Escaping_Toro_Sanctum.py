@@ -54,6 +54,11 @@ class Player:
         self.bravo_leader = bravo_leader
         self.user_city = user_city
         self.user_country = user_country
+        self.hp = 100 ####players health 
+        self.dmg = 3  #####damage that player deals
+    #####creating a function that allows the players health to be updated after battles and 
+    def update_health(self,hp_change):
+        self.hp = self.hp + hp_change
 
 ###collecting user input to be called later.
 def get_user_input():

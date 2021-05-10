@@ -1,4 +1,5 @@
 from ETS_functions import *
+from ETS_battles import *
 import sys
 from numpy import *  #####Used for random generation of puzzles
 from colorama import Fore, init ####Used to add some color to our wire puzzle
@@ -19,7 +20,6 @@ def escaping_sanctum(ETS_user):
     else:
         print("This isn\'t a valid response. Try again:\n")
         escaping_sanctum(ETS_user)
-
 
 def main_lobby(ETS_user):
     slow_text("\n\t\t\t __Main Lobby__\t\n\n")
