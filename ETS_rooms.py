@@ -76,7 +76,7 @@ Once inside the poorly lit elevator shaft, a small sign comes into view..\n")
 ##############################################################################
 
 def basement(ETS_user):
-    slow_text("\n\t\t\t __Basment__ \t\n\n")
+    slow_text("\n\t\t\t __Basement__ \t\n\n")
     storyline_paragraph(f"\n\nAlpha Team heads toward the frosted glass doors that lead to the stairs, the basement many flights down. \n\
 With a slight push of the doors, radio static can be fainlty heard emanating from below. {ETS_user.user_color.title()} lights illuminate ascending \n\
 and decending steps, but the team heads towards the noise..\n")
