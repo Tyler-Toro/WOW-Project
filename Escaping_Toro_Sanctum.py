@@ -4,17 +4,16 @@ import time
 import os
 from colorama import Fore, init
 import numpy as np
-
 init(autoreset= True)
 #####time delays and speeds for printing out text
 slow = 2.5          
 dia = 0.07
 quick = 0.01
 step = 1
-
 from ETS_functions import *
-from ETS_intro import *
+from ETS_intro import * 
 from ETS_rooms import *
+from ETS_battles import *
 
 
 ########################################################################################################################
@@ -84,6 +83,8 @@ def get_user_input():
     return(Player(user_name, user_color, user_weight, user_item, bravo_leader, user_city, user_country))
 ##using user class with calling input
 ETS_user = get_user_input()
+
+
 
 starting_question(ETS_user)
 print("\n\n")

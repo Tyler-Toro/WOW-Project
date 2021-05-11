@@ -1,4 +1,7 @@
 import sys
+from ETS_functions import *
+from ETS_rooms import *
+
 class Zombie:
     def __init__(self):
         self.hp = 6

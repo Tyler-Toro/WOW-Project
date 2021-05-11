@@ -1,3 +1,4 @@
+from ETS_battles import *
 from ETS_functions import *
 ###importing from our functions file
 
