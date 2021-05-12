@@ -1,10 +1,8 @@
 
 import sys
 import time
-import os
-from colorama import Fore, init
-import numpy as np
-init(autoreset= True)
+import random
+
 #####time delays and speeds for printing out text
 slow = 2.5          
 dia = 0.07
@@ -23,10 +21,6 @@ from ETS_battles import *
 ########################################################################################################################
 
 
-if os.get_terminal_size().columns < 150:
-    slow_text("WARNING: You're screen is not optimized to run Escaping Toro Sanctum. Please make your terminal wider after restarting the game. Thank you")
-    time.sleep(1)
-    sys.exit(1)
 
 print()
 time.sleep(step)
