@@ -44,7 +44,7 @@ def fast_text(text, delay = 0):
 def test_header(capsys):
     header()
     captured = capsys.readouterr()
-    assert captured.out == ("  \t\t   .... ............... ..........................\n\
+    assert captured.out == ("  \n\t\t   .... ............... ..........................\n\
   \t\t   .. ......................... .......... .......\n\
   \t\t   ...... ..... ......... ........................\n\
   \t\t   .........  Escaping Toro Sanctum...... ........\n\
