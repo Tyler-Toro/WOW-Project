@@ -3,8 +3,6 @@ ETS Functions
 '''
 import sys
 import time
-import os
-import numpy as np
 
 slow = 2.5
 dia = 0.07
