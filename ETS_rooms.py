@@ -1,9 +1,21 @@
 from ETS_functions import *
 from ETS_battles import *
 import sys
-from numpy import *  #####Used for random generation of puzzles
-from colorama import Fore, init ####Used to add some color to our wire puzzle
-init(autoreset= True)
+import random
+
+
+
+## Puzzle variables ########################
+####The user will recieve a different random order of the puzzle everytime due to the use of random from numpy.
+
+
+wires_full = ["red", "green", "blue", "yellow", "cyan", "magenta"]
+
+boiler_keys_full = ["skull","blood","heart","spine"]
+
+lever_direct = ["left", "right", "up", "down"]
+
+
 
 
 #######This file contains all of our rooms that we call and use in the game.
@@ -113,9 +125,11 @@ There is a directory on the wall\n")
 def boiler_room(ETS_user):
     boiler_keys = []
     temperature = 65
+    slow_text("\n\t\t\t __Boiler Room__ \t\n\n")
     storyline_paragraph("\nAs Alphas team enters the boiler room...\n\
 There is a loud hissing noise coming from the pipes.\n")
-    slow_text(f"\n\t({ETS_user.user_name}): \"The zombies have must have caused damage to the pipes\n\
+    zombie_battle(ETS_user)
+    slow_text(f"\n\t({ETS_user.user_name}): \"The zombies must have caused damage to the pipes\n\
 we need to head to the boiler room in order to figure out what is going on...\"\n")
     storyline_paragraph("\n There is a bloated body in the corner of the room in a pool of blood. A ring of keys lays on his chest.\n\
 Strange symbols are on the keys.\n")
@@ -147,7 +161,7 @@ They find a door that leads to the ELECTRICAL ROOM\n")
     if temperature == 125:
         slow_text(f"\nThe current room temperature is {temperature} degrees \n".upper())
         storyline_paragraph("The Room is engulfed in flames!!!!\n")
-        slow_text("\tYou the burned the Alpha Team!!! Game Over\n\n")
+        slow_text("\tYou have burned Alpha Team!!! Game Over\n\n")
         retry = input("Try again? (Y/N)\n>>>").lower()
         if retry == "n" or retry == "N":
             sys.exit()
@@ -173,6 +187,8 @@ def hit_door_hp(door_hp = 25):  ######The health of the door
     return door_hp
 
 def electrical_room(ETS_user):
+    random_lever_choice = random.choice(lever_direct)
+    slow_text("\n\t\t\t __Electrical Room__ \t\n\n")
     storyline_paragraph(f"\nAs the Alpha team enters the Electrical Room, they realize that the zombies have been\n\
 jamming the communications all along. In the control room is an emgercy communication circuit breaker.\n\
 {ETS_user.user_name} notices a lever that control the circuit.\n")
@@ -292,6 +308,7 @@ The slow flashing LED light tints the faces of zombies engulfing {ETS_user.user_
 ####################################################################
 
 def lab(ETS_user):
+    correct_wire = random.choice(wires_full)
     slow_text("\n\t\t\t __Laboratory__\t\n\n")
     storyline_paragraph(f"\n\nAlpha Team begins to make their way towards the sealed {correct_wire} glass doors of the laboratory wing.\n\
 The powerless automatic doors are pushed open with ease as Team Alpha enters the decontamination area. There is a sudden rumble felt...\n\
@@ -307,18 +324,7 @@ From many levels below comes the sound of heavy machinery and gears slowly grind
     wires.extend(wires_full)
     while cuts < 3:
         for wire in wires:
-            if wire == "red":
-                print(Fore.RED+wire)
-            elif wire == "green":
-                print(Fore.GREEN+wire)
-            elif wire == "blue":
-                print(Fore.BLUE+wire)
-            elif wire == "yellow":
-                print(Fore.YELLOW+wire)
-            elif wire == "cyan":
-                print(Fore.CYAN+wire)
-            elif wire == "magenta":
-                print(Fore.MAGENTA+wire)
+            fast_text(wire+"\n")
         user_wire = input("\n\nWhat color wire will you cut:  \n>>>").lower()
         if user_wire in wires:
             pass
@@ -411,6 +417,7 @@ def lab_flee(ETS_user):
 ##########################################################################
 
 def roof(ETS_user):
+    roof_access = format(random.randint(0000,9999), '04d')
     slow_text("\n\t\t\t __Rooftop__\t\n\n")
     storyline_paragraph(f"\n\nTeam Alpha led by {ETS_user.user_name} heads towards the staircase and starts the long climb to the roof\n\
 access door. The light becomes dimmer and dimmer as they ascend, the faint outline of a large metal door seems further away with each step.\n\
@@ -418,14 +425,14 @@ The sound of rain and distant thunder can be felt humming behind the steel door.
 {ETS_user.user_name} reaches down and pushes the door slightly to grab the small object")
     slow_text(f"\n\t({ETS_user.user_name}): \"What is this? It looks like a small bone...\n")
     storyline_paragraph(f"\nThe Team kicks open the door and rushes the rooftop. In every direction are bullet casings and empty ammunition\n\
-crates. The helicopter on the helipad is destroyed; a twisted metal skeleton with it\'s propellers folded. The AH-{(str(roof_access[0]))+(str(roof_access[1]))}\n\
+crates. The helicopter on the helipad is destroyed; a twisted metal skeleton with it\'s propellers folded. The AH-{(str(roof_access)[:2])}\n\
 Apache helicopter is military grade...The team moves further onto the roof when the metal door behind them slams shut")
     pause()
     storyline_paragraph("The door is reinforced steel with a blinking keypad above the door handle.\n")
     slow_text("\t[ _ _ _ _ ]\n")
     slow_text(f"\n\t({ETS_user.user_name}): \"Dammit! The keypad barely has power supply.\n")
     storyline_paragraph(f"\nStill gripping the small bone, {ETS_user.user_name} feels something carved into it. There are a series of numbers but some are\n\
-too difficult to make out. All that is legible is \"_ _ {roof_access[2:]}\"")
+too difficult to make out. All that is legible is \"_ _ {(str(roof_access)[2:])}\"")
     attempt_count = 0
     while attempt_count < 3:                                     
         roof_attempt = input("\n\t Enter the correct access number:\n>>>")
@@ -478,18 +485,3 @@ concrete surface. The room is dark and humid, the air acrid.\n")
         roof_escape(ETS_user)
 
 
-## Puzzle variables ########################
-####The user will recieve a different random order of the puzzle everytime due to the use of random from numpy.
-rng = np.random.default_rng()
-
-roof_access = "".join([str(x) for x in rng.integers(10, size =4)])
-
-wires_full = ["red", "green", "blue", "yellow", "cyan", "magenta"]
-
-correct_wire = np.random.choice(wires_full, replace = False)
-
-boiler_keys_full = ["skull","blood","heart","spine"]
-
-lever_direct = ["left", "right", "up", "down"]
-
-random_lever_choice = random.choice(lever_direct)
