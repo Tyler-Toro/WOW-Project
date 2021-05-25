@@ -49,3 +49,34 @@ h6 {
   margin-right: auto;
   border-radius: 10%;
 }
+
+.jtc-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10%;
+}
+
+a:link {
+  color: rgba(0, 210, 7, 0.701);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgba(255, 255, 255, 0.701);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
