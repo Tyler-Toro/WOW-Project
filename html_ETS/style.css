@@ -13,11 +13,39 @@ h1 {
 
 h4 {
   font-family: "Press Start 2P", cursive;
+  color: rgba(0, 210, 7, 0.701);
   text-align: center;
+}
+
+h6 {
+  color: rgba(255, 255, 255, 0.701);
+  font-family: "Times New Roman", Times, serif;
+  font-size: smaller;
 }
 
 .questions {
   color: rgba(0, 210, 7, 0.701);
   font-family: "Chakra Petch", sans-serif;
   font-family: "Press Start 2P", cursive;
+  text-align: center;
+}
+
+.answers {
+  color: rgba(255, 255, 255, 0.701);
+  font-family: "Chakra Petch", sans-serif;
+  text-align: center;
+}
+
+.img-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
+.members {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10%;
 }
